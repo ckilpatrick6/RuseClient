@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="NodeGrooverClient.Views.NowPlaying"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:tab="clr-namespace:NodeGrooverClient.Views"
+             xmlns:metro="http://schemas.codeplex.com/elysium"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <tab:TabView x:Name="TabsViewer" Grid.ColumnSpan="9"/>
+            <TextBlock Text="Now Playing" Grid.Column="1" Style="{StaticResource GroupHeaderTextStyle}" Foreground="#FF1BA1E2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Grid>
+
+        <ContentControl Grid.Row="1" Grid.ColumnSpan="2" Content="{StaticResource Queue}"/>
+
+
+        <ContentControl Content="{StaticResource Player}" Grid.Row="2" Grid.ColumnSpan="2"/>
+    </Grid>
+</UserControl>
