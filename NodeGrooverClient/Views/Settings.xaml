@@ -20,8 +20,7 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-      
+         
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -35,22 +34,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
       
-        <Grid Grid.ColumnSpan="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <tab:TabView x:Name="TabsViewer" Grid.ColumnSpan="9"/>
-            <TextBlock Text="Settings" Grid.Column="2" Style="{StaticResource GroupHeaderTextStyle}" Foreground="#FF1BA1E2" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        </Grid>
+    
 
-        <TextBlock Text="Hostname" Grid.Row="2" Foreground="Gray" FontSize="36" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Name="hostBox"/>
-        <TextBlock Text="Port" Foreground="Gray" FontSize="36" VerticalAlignment="Center" Grid.Row="3" FontFamily="Segoe UI Light"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" Name="portBox"/>
-        <Button Style="{StaticResource WhiteButton}" Grid.Row="4" Grid.Column="2" Margin="10,10,10,10" Content="Save" FontSize="30" VerticalContentAlignment="Top" Click="Button_Click_1" FontFamily="Segoe UI Light" Background="Transparent"/>
-        <ContentControl Content="{StaticResource Player}" Grid.Row="6"/>
+        <TextBlock Text="Hostname" Grid.Row="1" Foreground="Gray" FontSize="36" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Name="hostBox"/>
+        <TextBlock Text="Port" Foreground="Gray" FontSize="36" VerticalAlignment="Center" Grid.Row="2" FontFamily="Segoe UI Light"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Name="portBox"/>
+        <Button Style="{StaticResource WhiteButton}" Grid.Row="3" Grid.Column="2" Margin="10,10,10,10" Content="Save" FontSize="30" VerticalContentAlignment="Top" Click="Button_Click_1" FontFamily="Segoe UI Light" Background="Transparent"/>
     </Grid>
 </UserControl>

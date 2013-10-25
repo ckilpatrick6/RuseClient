@@ -22,7 +22,7 @@ namespace NodeGrooverClient.Views
     /// <summary>
     /// Interaction logic for Search.xaml
     /// </summary>
-    public partial class Search : UserControl, StatusListeners, ISwitchable
+    public partial class Search : UserControl, StatusListeners
     {
         API api;
         bool playing=false;
@@ -52,7 +52,7 @@ namespace NodeGrooverClient.Views
 
         private void UserControl_Initialized_1(object sender, EventArgs e)
         {
-            TabsViewer.selectButton(0);
+            //TabsViewer.selectButton(0);
         }
     }
 }

@@ -4,19 +4,12 @@
              xmlns:local="clr-namespace:NodeGrooverClient.Net"
              xmlns:views="clr-namespace:NodeGrooverClient.Views"
              Startup="StartupHandler"
-             StartupUri="Window1.xaml">
+             StartupUri="Views\Window2.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>                
                 <ResourceDictionary Source="/Elysium;component/Themes/Generic.xaml"/>
-                <ResourceDictionary>
-                    <views:Player x:Key="Player"/>
-                    <views:Queue x:Key="Queue"/>
-                    
-                </ResourceDictionary>
-                <ResourceDictionary>
-                    <views:Results x:Key="Results"/>
-                </ResourceDictionary>
+            
                 <ResourceDictionary>
                     <Style x:Key="GroupHeaderTextStyle" TargetType="TextBlock">
                         <Setter Property="FontFamily" Value="Segoe UI Light"/>

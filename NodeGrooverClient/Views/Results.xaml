@@ -24,22 +24,32 @@
                 <metro:CommandButton Content="&#xE109;" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Tag ="{Binding Count}" Click="Button_Click_3"/>
             </Grid>
         </DataTemplate>
+        <Style x:Key="WhiteButton" TargetType="{x:Type Button}">
+
+            <Setter Property="Foreground" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Gray"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
 
         <metro:ProgressBar  Name="progressBar" Height="10" VerticalAlignment="Top" Grid.ColumnSpan="2" State="Busy" Visibility="Collapsed"/>
         <TextBox Grid.Row="0" Name="searchBox" KeyDown="searchBox_KeyDown_1"/>
-        <Button Grid.Row="0" Grid.Column="2" FontSize="18" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Click="Button_Click_1"/>
+        <Button Grid.Row="0" Grid.Column="2" FontSize="18" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Style="{StaticResource WhiteButton}" Click="Button_Click_1"/>
         <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="listView" ItemTemplate="{StaticResource searchItemTemplate}" Background="{x:Null}" Margin="0,0,0,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">

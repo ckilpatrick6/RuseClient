@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <tab:TabView x:Name="TabsViewer" Grid.ColumnSpan="9"/>
+            <!--<tab:TabView x:Name="TabsViewer" Grid.ColumnSpan="9"/>-->
             <TextBlock Text="Search" Style="{StaticResource GroupHeaderTextStyle}" Foreground="#FF1BA1E2" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Grid>
 

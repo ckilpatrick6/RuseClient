@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Elysium.Notifications;
 
 namespace NodeGrooverClient.Views
 {
@@ -63,8 +64,9 @@ namespace NodeGrooverClient.Views
                     {
                         name = song.Name;
                         artist = song.ArtistName;
-                        if (nowPlaying==null||(song.Name != nowPlaying.Name&&song.ArtistName!=nowPlaying.ArtistName))
+                       if (nowPlaying==null||(song.Name != nowPlaying.Name&&song.ArtistName!=nowPlaying.ArtistName))
                         {
+                            int num = await NotificationManager.TryPushAsync("Now Playing", song.Name+" by "+song.ArtistName) ? 1 : 0;
                             nowPlaying = song;
                             try
                             {

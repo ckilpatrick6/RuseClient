@@ -11,14 +11,16 @@ namespace NodeGrooverClient.Net
 {
     public class StateManager
     {
-        public static List<StatusListeners> Listeners { get; set; }
-        public static DispatcherTimer UpdateTimer { get; set; }
+  
+        private static List<StatusListeners> listeners;
 
-        public static void updateAllListeners(Status s)
+       
+
+        public static  void updateAllListeners(Status s)
         {
-            if (Listeners != null)
+            if (listeners != null)
             {
-                foreach (StatusListeners sl in Listeners)
+                foreach (StatusListeners sl in listeners)
                 {
                     Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => sl.updateStatus(s)));
                 }
@@ -26,23 +28,15 @@ namespace NodeGrooverClient.Net
         }
         public static void registerListener(StatusListeners sl)
         {
-            if (Listeners == null)
+            if (listeners == null)
             {
-                Listeners = new List<StatusListeners>();
-                UpdateTimer = new DispatcherTimer();
-                UpdateTimer.Interval=new TimeSpan(0,0,0,0,1000);
-                UpdateTimer.Tick+=UpdateTimer_Tick;
-                UpdateTimer.Start();
+                listeners = new List<StatusListeners>();
             }
-            if (!Listeners.Contains(sl))
-                Listeners.Add(sl);
+            if (!listeners.Contains(sl))
+                listeners.Add(sl);
         }
         
-        static void UpdateTimer_Tick(object sender, EventArgs e)
-        {
-            //API api = API.getInstance();
-           //api.updateStatus();
-        }
+
 
     }
 
