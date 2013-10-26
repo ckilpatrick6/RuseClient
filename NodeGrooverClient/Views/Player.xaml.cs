@@ -70,7 +70,7 @@ namespace NodeGrooverClient.Views
                             nowPlaying = song;
                             try
                             {
-                                string image = await ArtAPI.getArt(song);
+                                string image = await LastFMAPI.getArt(song);
                                 if (image != "")
                                 {
                                     BitmapImage bitmap = new BitmapImage(new Uri(image));
@@ -78,6 +78,7 @@ namespace NodeGrooverClient.Views
                                 }
                                 else
                                     albumArt.Source = null;
+                                 
                             }
                             catch (JsonSerializationException jsex)
                             {

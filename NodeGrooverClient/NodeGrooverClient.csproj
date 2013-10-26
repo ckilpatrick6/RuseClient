@@ -71,8 +71,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\AlbumResults.cs" />
+    <Compile Include="Model\LastFm\Album.cs" />
+    <Compile Include="Model\LastFm\AlbumSearchResults.cs" />
+    <Compile Include="Model\LastFm\Artist.cs" />
+    <Compile Include="Model\LastFm\ArtistSearchResults.cs" />
     <Compile Include="Model\StatusWrapper.cs" />
+    <Compile Include="Model\LastFm\Track.cs" />
     <Compile Include="Net\ArtAPI.cs" />
     <Compile Include="Views\Player.xaml.cs">
       <DependentUpon>Player.xaml</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using NodeGrooverClient.Net;
+﻿using NodeGrooverClient.Model.LastFm;
+using NodeGrooverClient.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace NodeGrooverClient.Views
             InitializeComponent();
             API api = API.getInstance();
             api.connectSocket();
+         
         }
+        
     }
 }
