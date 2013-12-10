@@ -15,7 +15,7 @@ namespace NodeGrooverClient.Model.LastFm
         public string Artist { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
-        public Track[] Tracks { get; set; }
+        public List<Track> Tracks { get; set; }
 
     }
 }

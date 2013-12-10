@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Elysium.Notifications;
+//using Elysium.Notifications;
 
 namespace NodeGrooverClient.Views
 {
@@ -66,7 +66,7 @@ namespace NodeGrooverClient.Views
                         artist = song.ArtistName;
                        if (nowPlaying==null||(song.Name != nowPlaying.Name&&song.ArtistName!=nowPlaying.ArtistName))
                         {
-                            int num = await NotificationManager.TryPushAsync("Now Playing", song.Name+" by "+song.ArtistName) ? 1 : 0;
+                           // int num = await NotificationManager.TryPushAsync("Now Playing", song.Name+" by "+song.ArtistName) ? 1 : 0;
                             nowPlaying = song;
                             try
                             {
@@ -81,6 +81,10 @@ namespace NodeGrooverClient.Views
                                  
                             }
                             catch (JsonSerializationException jsex)
+                            {
+                                albumArt.Source = null;
+                            }
+                           catch (Exception ex)
                             {
                                 albumArt.Source = null;
                             }
@@ -126,6 +130,23 @@ namespace NodeGrooverClient.Views
         private void Previous_Click(object sender, RoutedEventArgs e)
         {
             api.prev();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            double value = ((int)(VolumeSlider.Value--)) / 100.0;
+            //value--;
+            value = value * 512.0;
+            api.setVolume((int)value);
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            double value = ((int)(VolumeSlider.Value++)) / 100.0;
+            //value++;
+            value = value * 512.0;
+            api.setVolume((int)value);
         }
 
         

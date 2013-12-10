@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace NodeGrooverClient.Model.LastFm
 {
-    class Artist
+    public class Artist
     {
+        public string Name { get; set; }
+        public string ImageUrl { get; set; }
+        public string mbid { get; set; }
+
     }
 }

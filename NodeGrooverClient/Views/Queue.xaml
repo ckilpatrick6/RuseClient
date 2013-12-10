@@ -30,7 +30,7 @@
 
     </UserControl.Resources>
     <Grid>
-        <ListView Name="nowPlayingList" ItemTemplate="{StaticResource nowPlayingTemplate}" Grid.Row="1" Grid.ColumnSpan="2">
+        <ListView Name="nowPlayingList" ItemTemplate="{StaticResource nowPlayingTemplate}" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="#00000000" Background="Transparent">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
