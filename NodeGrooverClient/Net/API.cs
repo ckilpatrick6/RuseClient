@@ -54,7 +54,14 @@ namespace NodeGrooverClient.Net
                 {
                     Debug.WriteLine("TOTAL SUCCESS");
                 });
+
+            socket.Error += socket_Error;
             socket.Connect();
+        }
+
+        void socket_Error(object sender, SocketIOClient.ErrorEventArgs e)
+        {
+            StateManager.errorListeners(0);  
         }
 
         public static API getInstance()
@@ -64,7 +71,6 @@ namespace NodeGrooverClient.Net
             
             return instance;
         }
-
 
 
         public async Task<Song[]> searchSongs(string query)
@@ -94,10 +100,19 @@ namespace NodeGrooverClient.Net
         {
             socket.Emit("play", s.SongID);
         }
+        public void youPlaySong(YoutubeSong s)
+        {
+            socket.Emit("youplay", s.Id);
+        }
 
         public void queueSong(Song s)
         {
             socket.Emit("queue", s.SongID);
+        }
+
+        public void youQueueSong(YoutubeSong s)
+        {
+            socket.Emit("youqueue", s.Id);
         }
 
         public void skip()
@@ -129,6 +144,31 @@ namespace NodeGrooverClient.Net
         public void gotoSong(int id)
         {
             socket.Emit("goto", id);
+        }
+        public void delete(int id)
+        {
+            socket.Emit("delete", id);
+        }
+
+        public async Task<YoutubeSong[]> searchYoutube(string query)
+        {
+            Debug.WriteLine(DateTime.Now + ": Getting http://search");
+            YoutubeSong[] results;
+            string url = "http://" + Host + ":" + Port + "/lib/ysearch/" + query;
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = await request.GetResponseAsync();
+            Debug.WriteLine(DateTime.Now + ": Recieved response for http://search");
+            Stream respStream = response.GetResponseStream();
+            using (StreamReader reader = new StreamReader(respStream))
+            {
+                string json = reader.ReadToEnd();
+                results = Newtonsoft.Json.JsonConvert.DeserializeObject<YoutubeSong[]>(json);
+            }
+            for (int i = 0; i < results.Length; i++)
+            {
+                results[i].Count = i;
+            }
+            return results;
         }
     }
 }

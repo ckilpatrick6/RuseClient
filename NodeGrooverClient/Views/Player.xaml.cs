@@ -60,7 +60,7 @@ namespace NodeGrooverClient.Views
                 string artist = "";
                 foreach (Song song in s.queue)
                 {
-                    if (song.Url == url)
+                    if (song.Current)
                     {
                         name = song.Name;
                         artist = song.ArtistName;
@@ -134,7 +134,7 @@ namespace NodeGrooverClient.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            double value = ((int)(VolumeSlider.Value--)) / 100.0;
+            double value = ((int)(VolumeSlider.Value-2)) / 100.0;
             //value--;
             value = value * 512.0;
             api.setVolume((int)value);
@@ -143,8 +143,9 @@ namespace NodeGrooverClient.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            double value = ((int)(VolumeSlider.Value++)) / 100.0;
+            double value = ((int)(VolumeSlider.Value+2)) / 100.0;
             //value++;
+            
             value = value * 512.0;
             api.setVolume((int)value);
         }

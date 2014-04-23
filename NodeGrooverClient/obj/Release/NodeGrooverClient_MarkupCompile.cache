@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alex\Documents\Visual Studio 2012\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Release\
+C:\Users\Alex\SkyDrive\Visual Studio 2012\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Release\
 NodeGrooverClient
 none
 false
 TRACE
-C:\Users\Alex\Documents\Visual Studio 2012\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\App.xaml
-9129377236
+C:\Users\Alex\SkyDrive\Visual Studio 2012\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\App.xaml
+61459398792
 
-23-1479821951
-16-988802506
-MainWindow.xaml;Views\NowPlaying.xaml;Views\Player.xaml;Views\Queue.xaml;Views\Results.xaml;Views\Search.xaml;Views\Settings.xaml;Views\TabView.xaml;Window1.xaml;
+221635704104
+16-1078203544
+Views\ContextWindow.xaml;Views\Player.xaml;Views\Queue.xaml;Views\Results.xaml;Views\Settings.xaml;Views\Window2.xaml;
 
 False
 

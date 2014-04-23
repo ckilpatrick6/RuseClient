@@ -15,6 +15,7 @@
                     <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -22,8 +23,9 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
                 <TextBlock Text="{Binding ArtistName}" Grid.Row="1" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
-                <metro:CommandButton Visibility="Collapsed" Grid.Column="1" Tag="{Binding Count}" Click="CommandButton_Click_1"/> 
-                <metro:ProgressRing Grid.Column="2" Visibility="{Binding Current, Converter={StaticResource VisibilityConverter}}" Grid.RowSpan="2" VerticalAlignment="Center" Height="35"  Maximum="{Binding Max}" Value="{Binding Time}"/>
+                <metro:CommandButton Visibility="Visible" Grid.Column="1" Tag="{Binding VlcId}" Content="&#xE10A;" FontFamily="Segoe UI Symbol" Click="CommandButton_Click_2" VerticalAlignment="Center"/>
+                <metro:CommandButton Visibility="Visible" Grid.Column="2" Tag="{Binding VlcId}" Content="&#xE102;" FontFamily="Segoe UI Symbol" Click="CommandButton_Click_1" VerticalAlignment="Center"/> 
+                <metro:ProgressRing Grid.Column="3" Visibility="{Binding Current, Converter={StaticResource VisibilityConverter}}" Grid.RowSpan="2" VerticalAlignment="Center" Height="35"  Maximum="{Binding Max}" Value="{Binding Time}"/>
             </Grid>
         </DataTemplate>
 

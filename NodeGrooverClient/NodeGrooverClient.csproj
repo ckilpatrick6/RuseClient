@@ -77,9 +77,15 @@
     <Compile Include="Model\LastFm\Artist.cs" />
     <Compile Include="Model\StatusWrapper.cs" />
     <Compile Include="Model\LastFm\Track.cs" />
+    <Compile Include="Model\ErrorListeners.cs" />
+    <Compile Include="Model\Thumbnails.cs" />
+    <Compile Include="Model\YoutubeSong.cs" />
     <Compile Include="Net\LastFmApi.cs" />
     <Compile Include="Views\ContextWindow.xaml.cs">
       <DependentUpon>ContextWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorDialog.xaml.cs">
+      <DependentUpon>ErrorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Player.xaml.cs">
       <DependentUpon>Player.xaml</DependentUpon>
@@ -102,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ContextWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ErrorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

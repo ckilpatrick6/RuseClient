@@ -54,5 +54,11 @@ namespace NodeGrooverClient.Views
             int count = (int)(sender as CommandButton).Tag;
             api.gotoSong(count);
         }
+        private void CommandButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            API api = API.getInstance();
+            int count = (int)(sender as CommandButton).Tag;
+            api.delete(count);
+        }
     }
 }

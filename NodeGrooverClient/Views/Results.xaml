@@ -24,6 +24,25 @@
                 <metro:CommandButton Content="&#xE109;" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Tag ="{Binding Count}" Click="Button_Click_3"/>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="youSearchItemTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Title}" Grid.Column="1" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                <TextBlock Text="{Binding Uploader}" Grid.Column="1" Grid.Row="1" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
+                <Image Source="{Binding Path=Thumbnail.sqDefault}" Grid.RowSpan="2" />
+                <metro:CommandButton Content="&#xE102;" FontFamily="Segoe UI Symbol" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Tag="{Binding Count}" Click="YouPlay_Click" />
+                <metro:CommandButton Content="&#xE109;" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Tag ="{Binding Count}" Click="YouButton_Click_3"/>
+            </Grid>
+        </DataTemplate>
         <DataTemplate x:Key="artistlistitem">
             <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
         </DataTemplate>
@@ -66,7 +85,7 @@
         <TextBox Grid.Row="0" Name="searchBox" KeyDown="searchBox_KeyDown_1"/>
         <Button Grid.Row="0" Grid.Column="2" FontSize="18" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Style="{StaticResource WhiteButton}" Click="Button_Click_1"/>
         <TabControl  Grid.Row="1" Grid.ColumnSpan="2" >
-            <TabItem Header="All" >
+            <TabItem Header="Grooveshark" >
                 <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="listView" ItemTemplate="{StaticResource searchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -75,47 +94,8 @@
                     </ListView.ItemContainerStyle>
                 </ListView>
             </TabItem>
-            <TabItem Header="Artists">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                   
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Image Name="artistImage" Margin="5,5,5,5" Grid.RowSpan="2" HorizontalAlignment="Left" Height="200" Width="200" />
-                        <TextBlock Name="artistBox" FontFamily="Segoe UI Light" FontWeight="Light" FontSize="32" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <TextBlock Text="Top Albums" FontFamily="Segoe UI Light" FontWeight="Light" FontSize="32" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        
-                        <ListView Grid.Column="2" Grid.Row="1" Name="topalbumslistview"  BorderBrush="Transparent" Background="#00000000" ItemTemplate="{StaticResource topAlbumItem}">
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
-                    </Grid>
-                
-                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="artistslistView" ItemTemplate="{StaticResource artistlistitem}" Background="{x:Null}" Margin="0,0,0,0" SelectionChanged="artistslistView_SelectionChanged">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Albums">
-                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="albumslistView" ItemTemplate="{StaticResource searchItemTemplate}" Background="{x:Null}" Margin="0,0,0,0">
+            <TabItem Header="Youtube">
+                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="youlistView" ItemTemplate="{StaticResource youSearchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

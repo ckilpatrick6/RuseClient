@@ -22,5 +22,8 @@ namespace NodeGrooverClient.Model
         public int Time { get; set; }
         public int Max { get; set; }
 
+        [JsonProperty("vlcid")]
+        public int VlcId { get; set; }
+
     }
 }
