@@ -1,5 +1,4 @@
-﻿using NodeGrooverClient.Model.LastFm;
-using NodeGrooverClient.Net;
+﻿using NodeGrooverClient.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,32 +18,32 @@ namespace NodeGrooverClient.Views
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class HomeWindow : Elysium.Controls.Window, ErrorListener
+    public partial class HomeWindow//, ErrorListener
     {
         public HomeWindow()
         {
             InitializeComponent();
-            StateManager.registerErrorListener(this);
-            API api = API.getInstance();
-            api.connectSocket();
-         
+            //StateManager.registerErrorListener(this);
+            //API api = API.getInstance();
+            //api.connectSocket();
+
         }
 
 
 
 
-        public void raiseError(string message)
-        {
-            ErrorDialog dialog = new ErrorDialog();
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(dialog); i++)
-            {
-                DependencyObject child = VisualTreeHelper.GetChild(dialog, i);
-                if (child is TextBlock)
-                {
-                    (child as TextBlock).Text = message;
-                }
-            }
-            dialog.ShowDialog();
-        }
+        //public void raiseError(string message)
+        //{
+        //    ErrorDialog dialog = new ErrorDialog();
+        //    for (int i = 0; i < VisualTreeHelper.GetChildrenCount(dialog); i++)
+        //    {
+        //        DependencyObject child = VisualTreeHelper.GetChild(dialog, i);
+        //        if (child is TextBlock)
+        //        {
+        //            (child as TextBlock).Text = message;
+        //        }
+        //    }
+        //    dialog.ShowDialog();
+        //}
     }
 }

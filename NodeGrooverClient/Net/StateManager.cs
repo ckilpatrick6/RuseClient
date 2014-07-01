@@ -11,48 +11,29 @@ namespace NodeGrooverClient.Net
 {
     public class StateManager
     {
-  
-        private static List<StatusListeners> listeners;
-        private static List<ErrorListener> errorListener;
 
-       
+        private static List<IStatusListener> listeners;
 
-        public static  void updateAllListeners(Status s)
+        public static void registerListener(IStatusListener listener)
         {
-            if (listeners != null)
-            {
-                foreach (StatusListeners sl in listeners)
+            if(listeners == null)
+                listeners = new List<IStatusListener>();
+
+            if (!listeners.Contains(listener))
+                listeners.Add(listener);
+        }
+        public static void updateListeners(Status status)
+        {
+            if(listeners!=null)
+                foreach(IStatusListener listener in listeners)
                 {
-                    Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => sl.updateStatus(s)));
+                    listener.updateStatus(status);
                 }
-            }
         }
-        public static void errorListeners(int status)
-        {
-            for(int i=0; i<errorListener.Count; i++)
-            {
-                errorListener[i].raiseError("ERROR");
-            }
-        }
-        public static void registerListener(StatusListeners sl)
-        {
-            if (listeners == null)
-            {
-                listeners = new List<StatusListeners>();
-            }
-            if (!listeners.Contains(sl))
-                listeners.Add(sl);
-        }
-        public static void registerErrorListener(ErrorListener sl)
-        {
-            if (errorListener == null)
-            {
-                errorListener = new List<ErrorListener>();
-            }
-            if (!errorListener.Contains(sl))
-                errorListener.Add(sl);
-        }
-        
+
+
+
+
 
 
     }

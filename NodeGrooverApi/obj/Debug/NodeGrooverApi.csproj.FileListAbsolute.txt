@@ -1,1 +1,0 @@
-C:\Users\Alex\SkyDrive\Visual Studio 2012\Projects\NodeGrooverClientSocketIO\NodeGrooverApi\obj\Debug\NodeGrooverApi.csprojResolveAssemblyReference.cache

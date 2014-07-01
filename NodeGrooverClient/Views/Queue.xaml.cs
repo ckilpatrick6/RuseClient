@@ -22,43 +22,31 @@ namespace NodeGrooverClient.Views
     /// <summary>
     /// Interaction logic for Queue.xaml
     /// </summary>
-    public partial class Queue : UserControl, StatusListeners
+    public partial class Queue : UserControl//, StatusListeners
     {
-        ObservableCollection<Song> songs = new ObservableCollection<Song>();
+        //ObservableCollection<Song> songs = new ObservableCollection<Song>();
         public Queue()
         {
             InitializeComponent();
-            StateManager.registerListener(this);
-            nowPlayingList.ItemsSource = songs;
+            //StateManager.registerListener(this);
+            //nowPlayingList.ItemsSource = songs;
         }
-        public void updateStatus(Model.Status s)
-        {
-            songs.Clear();
-            int count = 0;
-            foreach (Song song in s.queue)
-            {
-                if (song.Current)
-                {
-                    song.Time = s.songTime;
-                    song.Max = s.currentSongLength;
-                }
-                song.Count = count++;
-                songs.Add(song);
+        //public void updateStatus(Model.Status s)
+        //{
+        //    songs.Clear();
+        //    int count = 0;
+        //    foreach (Song song in s.queue)
+        //    {
+        //        if (song.Current)
+        //        {
+        //            song.Time = s.songTime;
+        //            song.Max = s.currentSongLength;
+        //        }
+        //        song.Count = count++;
+        //        songs.Add(song);
 
-            }
-        }
+        //    }
+        //}
 
-        private void CommandButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            API api = API.getInstance();
-            int count = (int)(sender as CommandButton).Tag;
-            api.gotoSong(count);
-        }
-        private void CommandButton_Click_2(object sender, RoutedEventArgs e)
-        {
-            API api = API.getInstance();
-            int count = (int)(sender as CommandButton).Tag;
-            api.delete(count);
-        }
     }
 }

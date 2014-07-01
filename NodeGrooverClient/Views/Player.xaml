@@ -1,23 +1,25 @@
 ﻿<UserControl x:Class="NodeGrooverClient.Views.Player"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:extra="http://schemas.extra.com/ui"
              xmlns:metro="http://schemas.codeplex.com/elysium"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:NodeGrooverClient.ViewModel"
+             xmlns:cv="clr-namespace:NodeGrooverClient.Helpers.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="1024">
+             d:DesignHeight="100" d:DesignWidth="1024"
+             DataContext="{DynamicResource PlayerViewModel}">
     <UserControl.Resources>
-        <Style x:Key="WhiteButton" TargetType="{x:Type Button}">
-            
-            <Setter Property="Foreground" Value="White"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Gray"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+        <vm:PlayerViewModel x:Key="PlayerViewModel"/>
+        <cv:FriendlyTimeConverter x:Key="TimeConverter"/>
+        <cv:PlayingConverter x:Key="PlayingConverter"/>
+
+       
     </UserControl.Resources>
+    
+    
+    
     <Grid Grid.Row="3" Grid.ColumnSpan="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
@@ -34,21 +36,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Style="{StaticResource WhiteButton}" Background="Transparent" BorderBrush="White" Name ="PrevButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="&#xE100;"  Click="Previous_Click" Margin="20,6,20,10" Grid.Column="0" Grid.RowSpan="2"/>
-        <Button  Style="{StaticResource WhiteButton}" Background="Transparent" BorderBrush="White" Name ="PauseButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="&#xE102;" Click="Pause_Click" Margin="20,10,20,10" Grid.Column="1" Grid.RowSpan="2"/>
-        <Button  Style="{StaticResource WhiteButton}" Background="Transparent" BorderBrush="White" Name="NextButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="&#xE101;" Click="Next_Click" Margin="20,10,20,10" Grid.Column="2" Grid.RowSpan="2"/>
+        <Button  Command="{Binding PrevCommand}"  Name ="PrevButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="&#xE100;"   Margin="20,6,20,10" Grid.Column="0" Grid.RowSpan="2"/>
+        <Button   Command="{Binding PlayCommand}"  Name ="PauseButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="{Binding Status.Playing, Converter={StaticResource PlayingConverter}, FallbackValue=&#xE102;}"  Margin="20,10,20,10" Grid.Column="1" Grid.RowSpan="2"/>
+        <Button   Command="{Binding NextCommand}" Name="NextButton" FontFamily="Segoe UI Symbol" FontSize="30" Content="&#xE101;"  Margin="20,10,20,10" Grid.Column="2" Grid.RowSpan="2"/>
 
-        <metro:ProgressBar Grid.Row="1" Grid.Column="7" Name="SongScrubber"  Height="40" Margin="50,0,50,0"/>
-        <TextBlock Name="songTimeBlock" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" Margin="5,-2,0,0"/>
-        <TextBlock Name="songMaxBlock" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-2,5,0"/>
-        <TextBlock Name="nowPlayingBlock" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="24" FontFamily="Segoe Ui Light" FontWeight="Light" Text="Song Title"/>
-        <TextBlock Name="artistBlock" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.RowSpan="2" Margin="60,0,0,0" FontSize="18" FontFamily="Segoe UI Light" Text="Artist"/>
-        <Button Grid.Column="3" Click="Button_Click" Style="{StaticResource WhiteButton}" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE108;"/>
-        <Button Grid.Column="5" Click="Button_Click_1" Style="{StaticResource WhiteButton}" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE109;"/>
-        <Slider Margin="0,0,0,0" Grid.Column="3" Grid.ColumnSpan="3" Name="VolumeSlider"  HorizontalAlignment="Stretch"  Grid.RowSpan="2" Orientation="Horizontal" Maximum="100" LostMouseCapture="VolumeSlider_LostMouseCapture" />
+        <ProgressBar Grid.Row="1" Grid.Column="7" Name="SongScrubber" Maximum="{Binding Status.Length, FallbackValue=100}" Value="{Binding Status.Time, FallbackValue=0}" Height="10" Margin="50,0,50,0"/>
+        <TextBlock Name="songTimeBlock" Text="{Binding Status.Time, Converter={StaticResource TimeConverter}}" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" Margin="5,-2,0,0"/>
+        <TextBlock Name="songMaxBlock" Text="{Binding Status.Length, Converter={StaticResource TimeConverter}}" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,-2,5,0"/>
+        <TextBlock Name="nowPlayingBlock" Grid.Column="7" Text="{Binding Status.Current.Name}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" FontSize="24" FontFamily="Segoe Ui Light" FontWeight="Light" />
+        <TextBlock Name="artistBlock" Grid.Column="7" Text="{Binding Status.Current.Artist}" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.RowSpan="2" Margin="60,0,0,0" FontSize="18" FontFamily="Segoe UI Light" />
+        <Slider Margin="0,0,0,5" Grid.Column="3"  Name="VolumeSlider"  HorizontalAlignment="Stretch"  Grid.RowSpan="2" Value="{Binding Status.Volume}" LostMouseCapture="VolumeSlider_LostMouseCapture" Orientation="Vertical" Maximum="100" />
         <TextBlock Grid.Column="4" Text="&#xE15D;" FontSize="24" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Symbol"/>
-        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Text="" Name="VolumeLabel" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" FontSize="24"/>
-        <Image Name="albumArt" Grid.Column="6" Grid.RowSpan="2" />
+        <TextBlock Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Text="{Binding Status.Volume}" Name="VolumeLabel" TextAlignment="Center" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="0,0,0,0" FontSize="24"/>
+        <Image Style="{StaticResource FadeInImage}" Name="albumArt" Source="{Binding Status.Current.AlbumArt}" Grid.Column="6" Grid.RowSpan="2" />
 
     </Grid>
 </UserControl>

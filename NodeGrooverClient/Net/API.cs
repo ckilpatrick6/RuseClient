@@ -1,6 +1,7 @@
-﻿using NodeGrooverClient.Model;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using NodeGrooverClient.Model;
 using NodeGrooverClient.Properties;
-using SocketIOClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,165 +11,110 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WampSharp;
+using WampSharp.Rpc;
 
 namespace NodeGrooverClient.Net
 {
     public class API
     {
-        private string _Host;
-        public string Host { get { return _Host; } }
-        private int _Port;
-        public int Port { get { return _Port; } }
-        private static API instance;
-        private Client socket;
-
-        private API()
-        {
-            this._Host = Settings.Default.Properties["Host"].DefaultValue.ToString();
-            this._Port = int.Parse(Settings.Default.Properties["Port"].DefaultValue.ToString());
-        }
-        public void connectSocket()
-        {
-            socket = new Client("http://" + Host + ":" + Port);
-            configureSocket(socket);
-        }
-        public void changeHost()
-        {
-            this._Host = Settings.Default.Properties["Host"].DefaultValue.ToString();
-            this._Port = (int)Settings.Default.Properties["Port"].DefaultValue;
-            socket.Dispose();
-            connectSocket();
-        }
-        private void configureSocket(Client socket)
-        {
-            socket.On("status", (fn) =>
-                {
-                    Debug.WriteLine("GotStatusIO");
-                    string json = fn.Json.ToJsonString();
-                    Debug.WriteLine(json);
-                    Status status = (Newtonsoft.Json.JsonConvert.DeserializeObject<StatusWrapper>(json)).args[0];
-                    StateManager.updateAllListeners(status);
-
-                });
-            socket.On("test", (fn) =>
-                {
-                    Debug.WriteLine("TOTAL SUCCESS");
-                });
-
-            socket.Error += socket_Error;
-            socket.Connect();
-        }
-
-        void socket_Error(object sender, SocketIOClient.ErrorEventArgs e)
-        {
-            StateManager.errorListeners(0);  
-        }
-
-        public static API getInstance()
-        {
-            if(instance == null)
-                instance = new API();
+        IWampChannel<JToken> channel;
+        IPlayer player;
             
-            return instance;
-        }
 
-
-        public async Task<Song[]> searchSongs(string query)
+        public API()
         {
-            Debug.WriteLine(DateTime.Now + ": Getting http://search");
-            Song[] results;
-            string url = "http://"+Host + ":" + Port + "/lib/search/" + query;
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = await request.GetResponseAsync();
-            Debug.WriteLine(DateTime.Now + ": Recieved response for http://search");
-            Stream respStream = response.GetResponseStream();
-            using (StreamReader reader = new StreamReader(respStream))
-            {
-                string json = reader.ReadToEnd();
-                results = Newtonsoft.Json.JsonConvert.DeserializeObject<Song[]>(json);
-            }
-            for (int i = 0; i < results.Length; i++)
-            {
-                results[i].Count = i;
-            }
-            return results;
+            DefaultWampChannelFactory channelFactory = new DefaultWampChannelFactory();
+            channel = channelFactory.CreateChannel("ws://localhost:3000");
+            channel.Open();
+            player = channel.GetRpcProxy<IPlayer>();
+  
+
+        }
+        public async Task<SearchResult> search(string query)
+        {
+            Task<string> task = player.search(query);
+            string json = await task;
+            SearchResult result = JsonConvert.DeserializeObject<SearchResult>(json);
+            return result;
         }
 
-        
+
 
         public void playSong(Song s)
         {
-            socket.Emit("play", s.SongID);
-        }
-        public void youPlaySong(YoutubeSong s)
-        {
-            socket.Emit("youplay", s.Id);
+            
         }
 
         public void queueSong(Song s)
         {
-            socket.Emit("queue", s.SongID);
+            //socket.Emit("queue", s.SongID);
         }
 
-        public void youQueueSong(YoutubeSong s)
-        {
-            socket.Emit("youqueue", s.Id);
-        }
 
         public void skip()
         {
-            socket.Emit("skip", "");
+            player.next();
         }
 
         public void prev()
         {
-            socket.Emit("prev", "");
+            player.prev();
         }
         public void pause()
         {
-            socket.Emit("pause", "");
+            player.pause();
         }
 
         public void resume()
         {
-            socket.Emit("resume", "");
+            player.resume();
         }
         public void setVolume(int volume)
         {
-            socket.Emit("volume", volume);
-        }
-        public void delete(Song s)
-        {
-            socket.Emit("delete", s.Count);
-        }
-        public void gotoSong(int id)
-        {
-            socket.Emit("goto", id);
+            player.volume(volume);
         }
         public void delete(int id)
         {
-            socket.Emit("delete", id);
+            player.delete(id);
+        }
+        public void gotoSong(int id)
+        {
+            player.goTo(id);
         }
 
-        public async Task<YoutubeSong[]> searchYoutube(string query)
-        {
-            Debug.WriteLine(DateTime.Now + ": Getting http://search");
-            YoutubeSong[] results;
-            string url = "http://" + Host + ":" + Port + "/lib/ysearch/" + query;
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = await request.GetResponseAsync();
-            Debug.WriteLine(DateTime.Now + ": Recieved response for http://search");
-            Stream respStream = response.GetResponseStream();
-            using (StreamReader reader = new StreamReader(respStream))
-            {
-                string json = reader.ReadToEnd();
-                results = Newtonsoft.Json.JsonConvert.DeserializeObject<YoutubeSong[]>(json);
-            }
-            for (int i = 0; i < results.Length; i++)
-            {
-                results[i].Count = i;
-            }
-            return results;
-        }
+    }
+    public interface IPlayer
+    {
+        [WampRpcMethod("com.ruse.playsong")]
+        void playSong(string songid);
+
+        [WampRpcMethod("com.ruse.queuesong")]
+        void queueSong(string songid);
+        
+        [WampRpcMethod("com.ruse.next")]
+        void next();
+
+        [WampRpcMethod("com.ruse.prev")]
+        void prev();
+
+        [WampRpcMethod("com.ruse.pause")]
+        void pause();
+
+        [WampRpcMethod("com.ruse.resume")]
+        void resume();
+
+        [WampRpcMethod("com.ruse.volume")]
+        void volume(int value);
+
+        [WampRpcMethod("com.ruse.goto")]
+        void goTo(int id);
+
+        [WampRpcMethod("com.ruse.delete")]
+        void delete(int id);
+
+        [WampRpcMethod("com.ruse.search")]
+        Task<string> search(string query);
     }
 }
+

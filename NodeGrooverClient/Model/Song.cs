@@ -9,21 +9,35 @@ namespace NodeGrooverClient.Model
 {
     public class Song
     {
-        public string Url { get; set; }
-        public long SongID { get; set; }
-        [JsonProperty("SongName")]
+        [JsonProperty("album")]
+        public string Album { get; set; }
+
+        [JsonProperty("albumId")]
+        public string AlbumID { get; set; }
+
+        [JsonProperty("artist")]
+        public string Artist { get; set; }
+
+        [JsonProperty("artistId")]
+        public string ArtistID { get; set; }
+
+        [JsonProperty("nid")]
+        public string Id { get; set; }
+
+        [JsonProperty("albumArtRef")]
+        public string AlbumArt { get; set; }
+
+        [JsonProperty("title")]
         public string Name { get; set; }
-        public long ArtistID { get; set; }
-        public string ArtistName { get; set; }
-        public long AlbumID { get; set; }
-        public string AlbumName { get; set; }
-        public int Count { get; set; }
-        public bool Current { get; set; }
-        public int Time { get; set; }
-        public int Max { get; set; }
 
         [JsonProperty("vlcid")]
         public int VlcId { get; set; }
 
+        [JsonProperty("current")]
+        public bool Current { get; set; }
+
+
+
     }
+
 }

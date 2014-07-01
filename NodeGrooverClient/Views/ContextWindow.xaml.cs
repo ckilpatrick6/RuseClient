@@ -1,4 +1,4 @@
-﻿using NodeGrooverClient.Model.LastFm;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,20 +27,20 @@ namespace NodeGrooverClient.Views
         public ContextWindow(Album a)
         {
             InitializeComponent();
-            currentAlbum = a;
-            loadSongs();
+         //   currentAlbum = a;
+           // loadSongs();
         }
-        public async void loadSongs()
-        {
-            await LastFMAPI.getAlbumTracks(currentAlbum);
-            List<Song> tracks = await LastFMAPI.getGSSongs(currentAlbum.Tracks, currentAlbum.Artist, currentAlbum.Name);
-            trackListView.ItemsSource = currentAlbum.Tracks;
+        //public async void loadSongs()
+        //{
+        //    await LastFMAPI.getAlbumTracks(currentAlbum);
+        //    List<Song> tracks = await LastFMAPI.getGSSongs(currentAlbum.Tracks, currentAlbum.Artist, currentAlbum.Name);
+        //    trackListView.ItemsSource = currentAlbum.Tracks;
             
-        }
+        //}
 
         private void Window_Deactivated(object sender, EventArgs e)
         {
-            Debug.WriteLine("Deactivated");
+        //    Debug.WriteLine("Deactivated");
         }
 
      

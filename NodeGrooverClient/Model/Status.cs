@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,26 +11,23 @@ namespace NodeGrooverClient.Model
 {
     public class Status
     {
-        [JsonProperty("state")]
-        public string playState { get; set; }
-        [JsonProperty("length")]
-        public int currentSongLength { get; set; }
+        [JsonProperty("volume")]
+        public int Volume { get; set; }
+        
         [JsonProperty("time")]
-        public int songTime{get;set;}
-        public double position { get; set; }
-        public int volume { get; set; }
-        public Song[] queue { get; set; }
-        public UriInfo information { get; set; }
+        public int Time { get; set; }
 
-        public void updateStatus(Status status)
-        {
-            playState = status.playState;
-            currentSongLength = status.currentSongLength;
-            songTime = status.songTime;
-            position = status.position;
-            volume = status.volume;
-        }
+        [JsonProperty("length")]
+        public int Length { get; set; }
+
+        [JsonProperty("playing")]
+        public bool Playing { get; set; }
+
+        [JsonProperty("queue")]
+        public ObservableCollection<Song> Queue { get; set; }
+
+        [JsonProperty("current")]
+        public Song Current { get; set; }
 
     }
-
 }

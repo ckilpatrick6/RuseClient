@@ -4,11 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:metro="http://schemas.codeplex.com/elysium"
+             xmlns:extra="http://schemas.extra.com/ui"
+             xmlns:vm="clr-namespace:NodeGrooverClient.ViewModel"
+             xmlns:cv="clr-namespace:NodeGrooverClient.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="1024">
+             d:DesignHeight="300" d:DesignWidth="1024"
+             DataContext="{DynamicResource SearchViewModel}">
     <UserControl.Resources>
+        <vm:SearchViewModel x:Key="SearchViewModel"/>
+        <cv:VisibilityConverter x:Key="VisibilityConverter"/>
+        
+       
         <DataTemplate x:Key="searchItemTemplate">
-            <Grid HorizontalAlignment="Stretch">
+            <Grid HorizontalAlignment="Stretch" Style="{StaticResource FadeInGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="*"/>
@@ -18,13 +26,34 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
-                <TextBlock Text="{Binding ArtistName}" Grid.Row="1" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
-                <metro:CommandButton Content="&#xE102;" FontFamily="Segoe UI Symbol" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Tag="{Binding Count}" Click="Play_Click" />
-                <metro:CommandButton Content="&#xE109;" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Tag ="{Binding Count}" Click="Button_Click_3"/>
+                
+                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" Grid.Column="0" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                <TextBlock Text="{Binding Artist}"  Grid.Row="1" Grid.Column="0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
+                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE102;"  Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.PlayCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
+                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE109;" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.QueueCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
             </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="youSearchItemTemplate">
+
+        <DataTemplate x:Key="albumItemTemplate">
+            <Canvas Width="200" Height="200" Style="{StaticResource FadeInCanvas}">
+                <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="200" Style="{StaticResource FadeInImage}"/>
+                <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="75" Background="Black">
+                    <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                    <TextBlock Text="{Binding ArtistName}" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
+                    <TextBlock Text="{Binding Year}" TextTrimming="WordEllipsis" FontSize="13" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
+                </StackPanel>
+            </Canvas>
+        </DataTemplate>
+
+        <DataTemplate x:Key="artistItemTemplate">
+            <Canvas Width="200" Height="112" Style="{StaticResource FadeInCanvas}">
+                <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="112" Style="{StaticResource FadeInImage}"/>
+                <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="50" Background="Black">
+                    <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                </StackPanel>
+            </Canvas>
+        </DataTemplate>
+        <!--<DataTemplate x:Key="youSearchItemTemplate">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
@@ -57,18 +86,14 @@
                 <TextBlock Text="{Binding Name}" Margin="5,0,0,0" Grid.Column="1"  TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
                 
             </Grid>
-        </DataTemplate>
-        <Style x:Key="WhiteButton" TargetType="{x:Type Button}">
-
-            <Setter Property="Foreground" Value="White"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Gray"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+        </DataTemplate>-->
+       
+        
+        
     </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding SearchCommand}"/>
+    </UserControl.InputBindings>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -82,25 +107,64 @@
         </Grid.RowDefinitions>
 
         <metro:ProgressBar  Name="progressBar" Height="10" VerticalAlignment="Top" Grid.ColumnSpan="2" State="Busy" Visibility="Collapsed"/>
-        <TextBox Grid.Row="0" Name="searchBox" KeyDown="searchBox_KeyDown_1"/>
-        <Button Grid.Row="0" Grid.Column="2" FontSize="18" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Style="{StaticResource WhiteButton}" Click="Button_Click_1"/>
-        <TabControl  Grid.Row="1" Grid.ColumnSpan="2" >
-            <TabItem Header="Grooveshark" >
-                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="listView" ItemTemplate="{StaticResource searchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
+        <TextBox Grid.Row="0" Name="searchBox" Text="{Binding Query}"/>
+        
+        <Button Grid.Row="0" Grid.Column="2" FontSize="18" Background="Transparent" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Style="{StaticResource WhiteButton}" Command="{Binding SearchCommand}" />
+        <TabControl  Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" >
+            <TabItem Header="Songs"  Background="Transparent">
+                <ListView Grid.Row="1" Grid.ColumnSpan="2"   Name="listView" ItemsSource="{Binding Results.Songs}"  ItemTemplate="{StaticResource searchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         </Style>
                     </ListView.ItemContainerStyle>
+                    
                 </ListView>
             </TabItem>
-            <TabItem Header="Youtube">
-                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="youlistView" ItemTemplate="{StaticResource youSearchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
+            <TabItem Header="Albums"  Background="Transparent">
+                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="listView2"  ItemsSource="{Binding Results.Albums}"  ItemTemplate="{StaticResource albumItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         </Style>
                     </ListView.ItemContainerStyle>
+
+                
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                            RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                            ItemWidth="{Binding (ListView.View).ItemWidth, 
+                            RelativeSource={RelativeSource AncestorType=ListView}}"
+                            MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                            ItemHeight="{Binding (ListView.View).ItemHeight, 
+                            RelativeSource={RelativeSource AncestorType=ListView}}" 
+                        />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Artists"  Background="Transparent">
+                <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="listView3"   ItemsSource="{Binding Results.Artists}"  ItemTemplate="{StaticResource artistItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                            RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                            ItemWidth="{Binding (ListView.View).ItemWidth, 
+                            RelativeSource={RelativeSource AncestorType=ListView}}"
+                            MinWidth="{Binding ItemWidth, RelativeSource={RelativeSource Self}}"
+                            ItemHeight="{Binding (ListView.View).ItemHeight, 
+                            RelativeSource={RelativeSource AncestorType=ListView}}" 
+                        />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
                 </ListView>
             </TabItem>
         </TabControl>

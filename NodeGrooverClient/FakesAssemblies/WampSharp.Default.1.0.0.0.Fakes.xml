@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WampSharp.Default.1.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampChannelFactory">
+            <summary>Shim type of WampSharp.DefaultWampChannelFactory</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampChannelFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampChannelFactory.#ctor(WampSharp.DefaultWampChannelFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampChannelFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampChannelFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampChannelFactory.Bind(WampSharp.IWampChannelFactory{Newtonsoft.Json.Linq.JToken})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampChannelFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampChannelFactory.Constructor">
+            <summary>Sets the shim of DefaultWampChannelFactory.DefaultWampChannelFactory()</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampChannelFactory.ConstructorIWampFormatterOfJToken">
+            <summary>Sets the shim of DefaultWampChannelFactory.DefaultWampChannelFactory(IWampFormatter`1&lt;JToken&gt; formatter)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampChannelFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampCraHost">
+            <summary>Shim type of WampSharp.DefaultWampCraHost</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.#ctor(WampSharp.DefaultWampCraHost)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.Bind(WampSharp.IWampHost)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost.ConstructorStringWampCraAuthenticaticatorBuilderOfJToken">
+            <summary>Sets the shim of DefaultWampCraHost.DefaultWampCraHost(String location, WampCraAuthenticaticatorBuilder`1&lt;JToken&gt; craAuthenticaticatorBuilder)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampCraHost.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampCraHost`1">
+            <summary>Shim type of WampSharp.DefaultWampCraHost`1</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.#ctor(WampSharp.DefaultWampCraHost{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.Bind(WampSharp.IWampHost)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampCraHost`1.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost`1.ConstructorIWampConnectionListenerOfT0IWampFormatterOfT0WampCraAuthenticaticatorBuilderOfT0">
+            <summary>Sets the shim of DefaultWampCraHost`1.DefaultWampCraHost`1(IWampConnectionListener`1&lt;!0&gt; connectionListener, IWampFormatter`1&lt;!0&gt; formatter, WampCraAuthenticaticatorBuilder`1&lt;!0&gt; craAuthenticaticatorBuilder)</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost`1.ConstructorIWampCraServerBuilderOfT0IWampConnectionListenerOfT0IWampFormatterOfT0">
+            <summary>Sets the shim of DefaultWampCraHost`1.DefaultWampCraHost`1(IWampCraServerBuilder`1&lt;!0&gt; serverBuilder, IWampConnectionListener`1&lt;!0&gt; connectionListener, IWampFormatter`1&lt;!0&gt; formatter)</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampCraHost`1.ConstructorStringIWampMessageParserOfT0IWampFormatterOfT0WampCraAuthenticaticatorBuilderOfT0">
+            <summary>Sets the shim of DefaultWampCraHost`1.DefaultWampCraHost`1(String location, IWampMessageParser`1&lt;!0&gt; parser, IWampFormatter`1&lt;!0&gt; formatter, WampCraAuthenticaticatorBuilder`1&lt;!0&gt; craAuthenticaticatorBuilder)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampCraHost`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampHost">
+            <summary>Shim type of WampSharp.DefaultWampHost</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.#ctor(WampSharp.DefaultWampHost)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.Bind(WampSharp.IWampHost)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost.ConstructorString">
+            <summary>Sets the shim of DefaultWampHost.DefaultWampHost(String location)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampHost.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampHost`1">
+            <summary>Shim type of WampSharp.DefaultWampHost`1</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.#ctor(WampSharp.DefaultWampHost{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.Bind(WampSharp.IWampHost)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimDefaultWampHost`1.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost`1.ConstructorIWampConnectionListenerOfT0IWampFormatterOfT0">
+            <summary>Sets the shim of DefaultWampHost`1.DefaultWampHost`1(IWampConnectionListener`1&lt;!0&gt; connectionListener, IWampFormatter`1&lt;!0&gt; formatter)</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost`1.ConstructorIWampServerBuilderOfT0IWampConnectionListenerOfT0IWampFormatterOfT0">
+            <summary>Sets the shim of DefaultWampHost`1.DefaultWampHost`1(IWampServerBuilder`1&lt;!0&gt; serverBuilder, IWampConnectionListener`1&lt;!0&gt; connectionListener, IWampFormatter`1&lt;!0&gt; formatter)</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimDefaultWampHost`1.ConstructorStringIWampMessageParserOfT0IWampFormatterOfT0">
+            <summary>Sets the shim of DefaultWampHost`1.DefaultWampHost`1(String location, IWampMessageParser`1&lt;!0&gt; parser, IWampFormatter`1&lt;!0&gt; formatter)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimDefaultWampHost`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.ShimWampChannelFactoryExtensions">
+            <summary>Shim type of WampSharp.WampChannelFactoryExtensions</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimWampChannelFactoryExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimWampChannelFactoryExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimWampChannelFactoryExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.ShimWampChannelFactoryExtensions.CreateChannelOf1IWampChannelFactoryOfM0StringIWampMessageParserOfM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{WampSharp.IWampChannelFactory{``0},System.String,WampSharp.Core.Serialization.IWampMessageParser{``0},WampSharp.IWampChannel{``0}})">
+            <summary>Sets the shim of WampChannelFactoryExtensions.CreateChannel(IWampChannelFactory`1&lt;!!0&gt; factory, String address, IWampMessageParser`1&lt;!!0&gt; parser)</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimWampChannelFactoryExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.ShimWampChannelFactoryExtensions.CreateChannelIWampChannelFactoryOfJTokenString">
+            <summary>Sets the shim of WampChannelFactoryExtensions.CreateChannel(IWampChannelFactory`1&lt;JToken&gt; factory, String address)</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.StubDefaultWampChannelFactory">
+            <summary>Stub type of WampSharp.DefaultWampChannelFactory</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampChannelFactory.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampChannelFactory.#ctor(WampSharp.Core.Serialization.IWampFormatter{Newtonsoft.Json.Linq.JToken})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampChannelFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultWampChannelFactory</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampChannelFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampChannelFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampChannelFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.StubDefaultWampCraHost">
+            <summary>Stub type of WampSharp.DefaultWampCraHost</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost.#ctor(System.String,WampSharp.Cra.WampCraAuthenticaticatorBuilder{Newtonsoft.Json.Linq.JToken})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultWampCraHost</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.StubDefaultWampCraHost`1">
+            <summary>Stub type of WampSharp.DefaultWampCraHost`1</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost`1.#ctor(WampSharp.Core.Listener.IWampConnectionListener{`0},WampSharp.Core.Serialization.IWampFormatter{`0},WampSharp.Cra.WampCraAuthenticaticatorBuilder{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost`1.#ctor(WampSharp.Cra.IWampCraServerBuilder{`0},WampSharp.Core.Listener.IWampConnectionListener{`0},WampSharp.Core.Serialization.IWampFormatter{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost`1.#ctor(System.String,WampSharp.Core.Serialization.IWampMessageParser{`0},WampSharp.Core.Serialization.IWampFormatter{`0},WampSharp.Cra.WampCraAuthenticaticatorBuilder{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampCraHost`1.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultWampCraHost</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampCraHost`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.StubDefaultWampHost">
+            <summary>Stub type of WampSharp.DefaultWampHost</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultWampHost</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Fakes.StubDefaultWampHost`1">
+            <summary>Stub type of WampSharp.DefaultWampHost`1</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost`1.#ctor(WampSharp.Core.Listener.IWampConnectionListener{`0},WampSharp.Core.Serialization.IWampFormatter{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost`1.#ctor(WampSharp.IWampServerBuilder{`0},WampSharp.Core.Listener.IWampConnectionListener{`0},WampSharp.Core.Serialization.IWampFormatter{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost`1.#ctor(System.String,WampSharp.Core.Serialization.IWampMessageParser{`0},WampSharp.Core.Serialization.IWampFormatter{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fakes.StubDefaultWampHost`1.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultWampHost</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fakes.StubDefaultWampHost`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1">
+            <summary>Shim type of WampSharp.Fleck.FleckWampConnectionListener`1</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.#ctor(WampSharp.Fleck.FleckWampConnectionListener{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.Bind(WampSharp.Core.Listener.IWampConnectionListener{`0})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.Bind(System.IObservable{WampSharp.Core.Listener.IWampConnection{`0}})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.ConstructorStringIWampMessageParserOfT0">
+            <summary>Sets the shim of FleckWampConnectionListener`1.FleckWampConnectionListener`1(String location, IWampMessageParser`1&lt;!0&gt; parser)</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.ConstructorStringIWampMessageParserOfT0X509Certificate2">
+            <summary>Sets the shim of FleckWampConnectionListener`1.FleckWampConnectionListener`1(String location, IWampMessageParser`1&lt;!0&gt; parser, X509Certificate2 sslCertificate)</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.StartServer">
+            <summary>Sets the shim of FleckWampConnectionListener`1.StartServer()</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.StopServerIfNeeded">
+            <summary>Sets the shim of FleckWampConnectionListener`1.StopServerIfNeeded()</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.SubscribeIObserverOfIWampConnectionOfT0">
+            <summary>Sets the shim of FleckWampConnectionListener`1.Subscribe(IObserver`1&lt;IWampConnection`1&lt;!0&gt;&gt; observer)</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1._StartServerb__2IWebSocketConnection">
+            <summary>Sets the shim of FleckWampConnectionListener`1.&lt;StartServer&gt;b__2(IWebSocketConnection connection)</summary>
+        </member>
+        <member name="T:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.AllInstances.StartServer">
+            <summary>Sets the shim of FleckWampConnectionListener`1.StartServer()</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.AllInstances.StopServerIfNeeded">
+            <summary>Sets the shim of FleckWampConnectionListener`1.StopServerIfNeeded()</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.AllInstances.SubscribeIObserverOfIWampConnectionOfT0">
+            <summary>Sets the shim of FleckWampConnectionListener`1.Subscribe(IObserver`1&lt;IWampConnection`1&lt;!0&gt;&gt; observer)</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.ShimFleckWampConnectionListener`1.AllInstances._StartServerb__2IWebSocketConnection">
+            <summary>Sets the shim of FleckWampConnectionListener`1.&lt;StartServer&gt;b__2(IWebSocketConnection connection)</summary>
+        </member>
+        <member name="T:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1">
+            <summary>Stub type of WampSharp.Fleck.FleckWampConnectionListener`1</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.#ctor(System.String,WampSharp.Core.Serialization.IWampMessageParser{`0})">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.#ctor(System.String,WampSharp.Core.Serialization.IWampMessageParser{`0},System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.InitializeStub">
+            <summary>Initializes a new instance of type StubFleckWampConnectionListener</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Fleck.Fakes.StubFleckWampConnectionListener`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser">
+            <summary>Shim type of WampSharp.Newtonsoft.JTokenMessageParser</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.#ctor(WampSharp.Newtonsoft.JTokenMessageParser)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.Bind(WampSharp.Core.Serialization.IWampMessageParser{Newtonsoft.Json.Linq.JToken})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.Constructor">
+            <summary>Sets the shim of JTokenMessageParser.JTokenMessageParser()</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.FormatWampMessageOfJToken">
+            <summary>Sets the shim of JTokenMessageParser.Format(WampMessage`1&lt;JToken&gt; message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.ParseString">
+            <summary>Sets the shim of JTokenMessageParser.Parse(String text)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.AllInstances.FormatWampMessageOfJToken">
+            <summary>Sets the shim of JTokenMessageParser.Format(WampMessage`1&lt;JToken&gt; message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJTokenMessageParser.AllInstances.ParseString">
+            <summary>Sets the shim of JTokenMessageParser.Parse(String text)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter">
+            <summary>Shim type of WampSharp.Newtonsoft.JsonFormatter</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.#ctor(WampSharp.Newtonsoft.JsonFormatter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.Bind(WampSharp.Core.Serialization.IWampFormatter{Newtonsoft.Json.Linq.JToken})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.DeserializeOf1JToken``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Newtonsoft.Json.Linq.JToken,``0})">
+            <summary>Sets the shim of JsonFormatter.Deserialize(JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.CanConvertJTokenType">
+            <summary>Sets the shim of JsonFormatter.CanConvert(JToken argument, Type type)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.Constructor">
+            <summary>Sets the shim of JsonFormatter.JsonFormatter()</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.DeserializeTypeJToken">
+            <summary>Sets the shim of JsonFormatter.Deserialize(Type type, JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.FormatJToken">
+            <summary>Sets the shim of JsonFormatter.Format(JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.ParseString">
+            <summary>Sets the shim of JsonFormatter.Parse(String message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.SerializeObject">
+            <summary>Sets the shim of JsonFormatter.Serialize(Object value)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.DeserializeOf1JToken``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{WampSharp.Newtonsoft.JsonFormatter,Newtonsoft.Json.Linq.JToken,``0})">
+            <summary>Sets the shim of JsonFormatter.Deserialize(JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.CanConvertJTokenType">
+            <summary>Sets the shim of JsonFormatter.CanConvert(JToken argument, Type type)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.DeserializeTypeJToken">
+            <summary>Sets the shim of JsonFormatter.Deserialize(Type type, JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.FormatJToken">
+            <summary>Sets the shim of JsonFormatter.Format(JToken message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.ParseString">
+            <summary>Sets the shim of JsonFormatter.Parse(String message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonFormatter.AllInstances.SerializeObject">
+            <summary>Sets the shim of JsonFormatter.Serialize(Object value)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter">
+            <summary>Shim type of WampSharp.Newtonsoft.JsonWampMessageFormatter</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.#ctor(WampSharp.Newtonsoft.JsonWampMessageFormatter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.Bind(WampSharp.Core.Message.IWampMessageFormatter{Newtonsoft.Json.Linq.JToken})">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.Constructor">
+            <summary>Sets the shim of JsonWampMessageFormatter.JsonWampMessageFormatter()</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.FormatWampMessageOfJToken">
+            <summary>Sets the shim of JsonWampMessageFormatter.Format(WampMessage`1&lt;JToken&gt; message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.ParseJToken">
+            <summary>Sets the shim of JsonWampMessageFormatter.Parse(JToken message)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.AllInstances.FormatWampMessageOfJToken">
+            <summary>Sets the shim of JsonWampMessageFormatter.Format(WampMessage`1&lt;JToken&gt; message)</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.ShimJsonWampMessageFormatter.AllInstances.ParseJToken">
+            <summary>Sets the shim of JsonWampMessageFormatter.Parse(JToken message)</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser">
+            <summary>Stub type of WampSharp.Newtonsoft.JTokenMessageParser</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser.InitializeStub">
+            <summary>Initializes a new instance of type StubJTokenMessageParser</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJTokenMessageParser.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.StubJsonFormatter">
+            <summary>Stub type of WampSharp.Newtonsoft.JsonFormatter</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJsonFormatter.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJsonFormatter.InitializeStub">
+            <summary>Initializes a new instance of type StubJsonFormatter</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonFormatter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonFormatter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonFormatter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter">
+            <summary>Stub type of WampSharp.Newtonsoft.JsonWampMessageFormatter</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter.InitializeStub">
+            <summary>Initializes a new instance of type StubJsonWampMessageFormatter</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:WampSharp.Newtonsoft.Fakes.StubJsonWampMessageFormatter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>
