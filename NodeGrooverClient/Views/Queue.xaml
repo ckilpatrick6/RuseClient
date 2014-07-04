@@ -30,14 +30,11 @@
                 
 
                 <Image Source="{Binding AlbumArt}"  Width="100" Height="100" Grid.RowSpan="5" Margin="5,0,0,0"/>
-                <!--<Border Width="100" Height="100" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" Background="Black" Opacity="0" Margin="5,0,0,0" Grid.RowSpan="5">
+                <Border Width="100" Height="100" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" Background="Black" Opacity="0" Margin="5,0,0,0" Grid.RowSpan="5">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Style.Triggers>
                                 <Trigger Property="Visibility" Value="Visible">
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard Storyboard="{StaticResource FadeOutTrans}"/>
-                                    </Trigger.ExitActions>
                                     <Trigger.EnterActions>
                                         <BeginStoryboard Storyboard="{StaticResource FadeInTrans}"/>
                                     </Trigger.EnterActions>
@@ -45,22 +42,23 @@
                             </Style.Triggers>
                         </Style>
                     </Border.Style>
-                    <metro:CommandButton Width="50" Height="50" Canvas.Top="25" Content="&#xE102;" Background="Transparent" Canvas.Left="25"/>
-                </Border>-->
+                    <Canvas>
+                        <metro:CommandButton Width="50" Height="50" Canvas.Top="25" FontFamily="Segoe UI Symbol"  Content="&#xE102;" Background="Transparent" Canvas.Left="25" Command="{Binding Path=DataContext.GotoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding VlcId}"/>
+                        <metro:CommandButton Width="30" Height="30" Canvas.Left="0" Canvas.Top="-2.5" Content="&#xE108;" FontFamily="Segoe UI Symbol" Background="Transparent" Command="{Binding Path=DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding VlcId}" />
+                    </Canvas>
+                </Border>
                 
                 <TextBlock Text="{Binding Name}"  Grid.Column="1" TextTrimming="WordEllipsis" Margin="10,0,0,0" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
                 <TextBlock Text="{Binding Artist}" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
                 <TextBlock Text="{Binding Album}" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
-                <metro:CommandButton Content="&#xE102;"  Grid.RowSpan="5" FontFamily="Segoe UI Symbol" Grid.Column="3"  HorizontalAlignment="Right" Command="{Binding Path=DataContext.GotoCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding VlcId}"/>
-                <metro:CommandButton Content="&#xE108;"  Grid.RowSpan="5" FontFamily="Segoe UI Symbol" Grid.Column="4"  HorizontalAlignment="Right" Command="{Binding Path=DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding VlcId}"/>
-                <metro:ProgressRing Grid.Column="2" Visibility="{Binding Current, Converter={StaticResource VisibilityConverter} }" Grid.RowSpan="100" VerticalAlignment="Center" Height="35"  Maximum="{Binding Path=DataContext.Status.Length, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="{Binding Path=DataContext.Status.Time, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+                <!--<metro:ProgressRing Grid.Column="4" Visibility="{Binding Current, Converter={StaticResource VisibilityConverter} }" Grid.RowSpan="100" VerticalAlignment="Center" Height="35"  Maximum="{Binding Path=DataContext.Status.Length, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="{Binding Path=DataContext.Status.Time, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>-->
             </Grid>
         </DataTemplate>
 
 
     </UserControl.Resources>
     <Grid>
-        <ListView Name="nowPlayingList" ItemsSource="{Binding Status.Queue}" ItemTemplate="{StaticResource nowPlayingTemplate}" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="#00000000" Background="Transparent">
+        <ListView Name="nowPlayingList" ItemsSource="{Binding Queue}" ItemTemplate="{StaticResource nowPlayingTemplate}" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="#00000000" Background="Transparent">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

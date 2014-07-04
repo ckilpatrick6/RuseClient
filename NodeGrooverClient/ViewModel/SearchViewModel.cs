@@ -2,6 +2,7 @@
 using NodeGrooverClient.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace NodeGrooverClient.ViewModel
 
         }
 
+        
+
         private string _query;
 
         public string Query
@@ -43,11 +46,14 @@ namespace NodeGrooverClient.ViewModel
         public RelayCommand PlayCommand { get; set; }
         public RelayCommand QueueCommand { get; set; }
 
+        public RelayCommand PlayAlbumCommand { get; set; }
+
         public SearchViewModel()
         {
             SearchCommand = new RelayCommand(search);
             PlayCommand = new RelayCommand(play);
             QueueCommand = new RelayCommand(queue);
+            PlayAlbumCommand = new RelayCommand(playAlbum);
 
         }
 
@@ -70,6 +76,12 @@ namespace NodeGrooverClient.ViewModel
             if (parameter == null)
                 return;
             (Application.Current as App).Api.queue(parameter.ToString());
+        }
+        void playAlbum(object parameter)
+        {
+            if (parameter == null)
+                return;
+            (Application.Current as App).Api.playAlbum(parameter.ToString());
         }
     }
 }

@@ -90,5 +90,10 @@ namespace NodeGrooverClient.Net
         {
             socket.Emit("goto", id, "/ruse");
         }
+
+        public void playAlbum(string p)
+        {
+            socket.Emit("playalbum", p, "/ruse");
+        }
     }
 }
