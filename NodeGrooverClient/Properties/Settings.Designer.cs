@@ -25,25 +25,13 @@ namespace NodeGrooverClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("abettadapur.dyndns.org")]
-        public string Host {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5000")]
+        public string endpoint {
             get {
-                return ((string)(this["Host"]));
+                return ((string)(this["endpoint"]));
             }
             set {
-                this["Host"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3000")]
-        public int Port {
-            get {
-                return ((int)(this["Port"]));
-            }
-            set {
-                this["Port"] = value;
+                this["endpoint"] = value;
             }
         }
     }

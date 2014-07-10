@@ -26,5 +26,8 @@ namespace NodeGrooverClient.Model
 
         [JsonProperty("albumArtRef")]
         public string Art { get; set; }
+
+        [JsonProperty("tracks")]
+        public Song[] Songs { get; set; }
     }
 }

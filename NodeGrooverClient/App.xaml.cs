@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using NodeGrooverClient.Properties;
 
 namespace NodeGrooverClient
 {
@@ -20,7 +21,7 @@ namespace NodeGrooverClient
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            _api = new Api("http://localhost:5000/");
+            _api = new Api(Settings.Default["endpoint"].ToString());
         } 
         private void StartupHandler(object sender, System.Windows.StartupEventArgs e)
         {

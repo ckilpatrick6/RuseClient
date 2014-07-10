@@ -46,6 +46,21 @@ namespace NodeGrooverClient.Net
             }
             return result;
         }
+
+        public async Task<Album> getAlbum(string id)
+        {
+            Album album;
+            string url = this.uri + "album?id=" + id;
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = await request.GetResponseAsync();
+            Stream respStream = response.GetResponseStream();
+            using(StreamReader reader = new StreamReader(respStream))
+            {
+                string json = reader.ReadToEnd();
+                album = Newtonsoft.Json.JsonConvert.DeserializeObject<Album>(json);
+            }
+            return album;
+        }
         public void play(string id)
         {
             socket.Emit("play", id, "/ruse");
@@ -94,6 +109,11 @@ namespace NodeGrooverClient.Net
         public void playAlbum(string p)
         {
             socket.Emit("playalbum", p, "/ruse");
+        }
+
+        public void queueAlbum(string id)
+        {
+            socket.Emit("queuealbum", id, "/ruse");
         }
     }
 }

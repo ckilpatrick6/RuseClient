@@ -1,6 +1,7 @@
 ﻿using Elysium.Controls;
 using NodeGrooverClient.Model;
 using NodeGrooverClient.Net;
+using NodeGrooverClient.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +28,18 @@ namespace NodeGrooverClient.Views
         public Results()
         {
             InitializeComponent();
+        }
+
+        private void ShowAlbum_Click(object sender, RoutedEventArgs e)
+        {
+            CommandButton button = (sender as CommandButton);
+            AlbumOverlay overlay = new AlbumOverlay
+            {
+                DataContext = new AlbumViewModel(button.Tag.ToString()),
+                Owner = System.Windows.Window.GetWindow(this),
+                Style = (Style)this.FindResource("DarkOverlayWindowStyle")
+            };
+            overlay.Show();
         }
     }
 }

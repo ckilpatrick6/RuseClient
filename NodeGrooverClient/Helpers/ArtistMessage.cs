@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NodeGrooverClient.ViewModel
+namespace NodeGrooverClient.Helpers
 {
-    public class QueueViewModel
+    class ArtistMessage
     {
-
     }
 }

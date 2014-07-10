@@ -113,10 +113,13 @@
     <Compile Include="Model\Status.cs" />
     <Compile Include="Net\ApiSock.cs" />
     <Compile Include="Net\IStatusListener.cs" />
-    <Compile Include="ViewModel\QueueViewModel.cs" />
+    <Compile Include="ViewModel\AlbumViewModel.cs" />
     <Compile Include="ViewModel\SearchViewModel.cs" />
     <Compile Include="ViewModel\PlayerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="Views\AlbumOverlay.xaml.cs">
+      <DependentUpon>AlbumOverlay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ContextWindow.xaml.cs">
       <DependentUpon>ContextWindow.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlbumOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ContextWindow.xaml">
       <SubType>Designer</SubType>

@@ -170,3 +170,5 @@ C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\No
 C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\Simple Styles.baml
 C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\NodeGrooverClient_Content.g.cs
 C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Views\r6u7.png
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\Views\AlbumOverlay.baml
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\Views\AlbumOverlay.g.cs

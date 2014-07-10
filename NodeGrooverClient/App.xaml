@@ -5,6 +5,8 @@
              xmlns:views="clr-namespace:NodeGrooverClient.Views"
              xmlns:metro="http://schemas.codeplex.com/elysium"
              xmlns:params="http://schemas.codeplex.com/elysium/params" x:Class="NodeGrooverClient.App"
+             xmlns:cv="clr-namespace:NodeGrooverClient.Views"
+             xmlns:properties="clr-namespace:NodeGrooverClient.Properties"
              Startup="StartupHandler"
              StartupUri="Views\Window2.xaml">
     <Application.Resources>
@@ -12,8 +14,12 @@
             <ResourceDictionary.MergedDictionaries>                
                 <!--<ResourceDictionary Source="/Elysium;component/Themes/Generic.xaml"/>-->
                 <ResourceDictionary Source="/Framework.UI;component/Themes/Generic.xaml"/>
+             
             
                 <ResourceDictionary>
+                    <cv:VisibilityConverter x:Key="VisibilityConverter"/>
+                    <properties:Settings x:Key="Settings"/>
+                    
                     <Style x:Key="GroupHeaderTextStyle" TargetType="{x:Type TextBlock}">
                     	<Setter Property="FontFamily" Value="Segoe UI Light"/>
                     	<Setter Property="TextTrimming" Value="WordEllipsis"/>
@@ -138,6 +144,7 @@
                         </Style.Triggers>
                     </Style>
 
+                   
 
                 </ResourceDictionary>
             	<ResourceDictionary Source="Simple Styles.xaml"/>

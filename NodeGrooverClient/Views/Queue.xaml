@@ -14,6 +14,7 @@
         <vm:PlayerViewModel x:Key="QueueViewModel"/>
         <tab:VisibilityConverter x:Key="VisibilityConverter"/>
         <DataTemplate x:Key="nowPlayingTemplate">
+            <Canvas Height="100" Style="{StaticResource FadeInCanvas}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="105"/>
@@ -28,7 +29,6 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
-
                 <Image Source="{Binding AlbumArt}"  Width="100" Height="100" Grid.RowSpan="5" Margin="5,0,0,0"/>
                 <Border Width="100" Height="100" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" Background="Black" Opacity="0" Margin="5,0,0,0" Grid.RowSpan="5">
                     <Border.Style>
@@ -51,8 +51,10 @@
                 <TextBlock Text="{Binding Name}"  Grid.Column="1" TextTrimming="WordEllipsis" Margin="10,0,0,0" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
                 <TextBlock Text="{Binding Artist}" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
                 <TextBlock Text="{Binding Album}" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
+                    
                 <!--<metro:ProgressRing Grid.Column="4" Visibility="{Binding Current, Converter={StaticResource VisibilityConverter} }" Grid.RowSpan="100" VerticalAlignment="Center" Height="35"  Maximum="{Binding Path=DataContext.Status.Length, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="{Binding Path=DataContext.Status.Time, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>-->
             </Grid>
+            </Canvas>
         </DataTemplate>
 
 

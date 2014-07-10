@@ -15,24 +15,7 @@
         <cv:VisibilityConverter x:Key="VisibilityConverter"/>
         
        
-        <DataTemplate x:Key="searchItemTemplate">
-            <Grid HorizontalAlignment="Stretch" Style="{StaticResource FadeInGrid}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" Grid.Column="0" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
-                <TextBlock Text="{Binding Artist}"  Grid.Row="1" Grid.Column="0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
-                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE102;"  Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.PlayCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
-                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE109;" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.QueueCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
-            </Grid>
-        </DataTemplate>
+        
 
         <DataTemplate x:Key="albumItemTemplate">
             <Grid>
@@ -64,7 +47,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                         <metro:CommandButton Width="50" Height="50" VerticalAlignment="Center" FontSize="22" FontFamily="Segoe UI Symbol"  Content="&#xE102;" Background="Transparent"  Command="{Binding Path=DataContext.PlayAlbumCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
-                        <metro:CommandButton Width="50" Height="50"  VerticalAlignment="Center" FontSize="22" Grid.Column="1" Content="&#xE10C;" FontFamily="Segoe UI Symbol" Background="Transparent"/>
+                            <metro:CommandButton Width="50" Height="50"  VerticalAlignment="Center" FontSize="22" Grid.Column="1" Content="&#xE10C;" FontFamily="Segoe UI Symbol" Background="Transparent" Tag="{Binding Id}" Click="ShowAlbum_Click"/>
                         </Grid>
 
                     </Canvas>
@@ -81,6 +64,26 @@
             </Canvas>
             
         </DataTemplate>
+
+        <DataTemplate x:Key="searchItemTemplate">
+            <Grid HorizontalAlignment="Stretch" Style="{StaticResource FadeInGrid}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" Grid.Column="0" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                <TextBlock Text="{Binding Artist}"  Grid.Row="1" Grid.Column="0" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="LightGray"/>
+                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE102;"  Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.PlayCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
+                <metro:CommandButton Style="{StaticResource FadeInButton}" Content="&#xE109;" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" FontFamily="Segoe UI Symbol" Grid.Column="2" Grid.RowSpan="2" HorizontalAlignment="Right" Command="{Binding Path=DataContext.QueueCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
+            </Grid>
+        </DataTemplate>
+
         <!--<DataTemplate x:Key="youSearchItemTemplate">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
