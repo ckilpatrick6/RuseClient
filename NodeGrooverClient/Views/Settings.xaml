@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:tab="clr-namespace:NodeGrooverClient.Views"
+             xmlns:vm="clr-namespace:NodeGrooverClient.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="768" d:DesignWidth="1024" Initialized="UserControl_Initialized_1">
+             d:DesignHeight="768" d:DesignWidth="1024"
+             DataContext="{DynamicResource SettingsViewModel}"
+             >
     <UserControl.Resources>
+        <vm:SettingsViewModel x:Key="SettingsViewModel"/>
         <Style x:Key="WhiteButton" TargetType="{x:Type Button}">
 
             <Setter Property="Foreground" Value="White"/>
@@ -38,22 +42,10 @@
       
     
 
-        <TextBlock Text="Hostname" Grid.Row="1" Foreground="Gray" FontSize="36" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Name="hostBox"/>
+        <TextBlock Text="Hostname" Grid.Row="1" Foreground="Gray" FontSize="36"  VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" Name="hostBox" Text="{Binding Hostname, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Port" Foreground="Gray" FontSize="36" VerticalAlignment="Center" Grid.Row="2" FontFamily="Segoe UI Light"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Name="portBox"/>
-        <Button Style="{StaticResource WhiteButton}" Grid.Row="3" Grid.Column="2" Margin="10,10,10,10" Content="Save" FontSize="30" VerticalContentAlignment="Top" Click="Button_Click_1" FontFamily="Segoe UI Light" Background="Transparent"/>
-        <TextBlock Text="Theme" Grid.Row="4" Foreground="Gray" FontSize="36" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
-        <ComboBox Grid.Row="4"  SelectedItem="{Binding SelectedColor}" ItemsSource="{Binding accentColors}" Grid.Column="1" Margin="10,10,10,10" Name="comboBox" SelectionChanged="comboBox_SelectionChanged">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Background="{Binding}">
-                        <TextBlock Text="                          " Foreground="{Binding}"/>
-                        
-                    </Grid>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ComboBox Grid.Row="5"  SelectedItem="{Binding SelectedTheme}" ItemsSource="{Binding Themes}" Grid.Column="1" Margin="10,10,10,10" SelectionChanged="comboBox_SelectionChanged"/>        
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="10,10,10,10" Name="portBox" Text="{Binding Port, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="3" Grid.Column="2" Margin="10,10,10,10" Content="Save" FontSize="30" VerticalContentAlignment="Top" Command="{Binding SaveCommand}" FontFamily="Segoe UI Light" Background="Transparent"/>     
     </Grid>
 </UserControl>

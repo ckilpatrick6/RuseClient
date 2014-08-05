@@ -32,6 +32,11 @@ namespace NodeGrooverClient.Net
             socket.Connect("/ruse");
         }
 
+        public void disconnect()
+        {
+            socket.Close();
+        }
+
         public async Task<SearchResult> search(string query)
         {
             SearchResult result;

@@ -116,6 +116,7 @@
     <Compile Include="ViewModel\AlbumViewModel.cs" />
     <Compile Include="ViewModel\SearchViewModel.cs" />
     <Compile Include="ViewModel\PlayerViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="Views\AlbumOverlay.xaml.cs">
       <DependentUpon>AlbumOverlay.xaml</DependentUpon>

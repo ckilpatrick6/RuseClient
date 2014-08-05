@@ -23,6 +23,12 @@ namespace NodeGrooverClient
             base.OnStartup(e);
             _api = new Api(Settings.Default["endpoint"].ToString());
         } 
+        public void changeUri(string uri)
+        {
+            _api.disconnect();
+            Settings.Default["endpoint"] = uri;
+            _api = new Api(uri);
+        }
         private void StartupHandler(object sender, System.Windows.StartupEventArgs e)
         {
             //Elysium.Manager.Apply(this, Elysium.Theme.Dark, Elysium.AccentBrushes.Green, Elysium.AccentBrushes.Lime);
