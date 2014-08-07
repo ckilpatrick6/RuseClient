@@ -27,6 +27,7 @@ namespace NodeGrooverClient
         {
             _api.disconnect();
             Settings.Default["endpoint"] = uri;
+            Settings.Default.Save();
             _api = new Api(uri);
         }
         private void StartupHandler(object sender, System.Windows.StartupEventArgs e)

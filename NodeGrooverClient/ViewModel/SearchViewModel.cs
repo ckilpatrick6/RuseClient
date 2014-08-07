@@ -1,4 +1,5 @@
-﻿using NodeGrooverClient.Helpers;
+﻿using Framework.UI.Controls;
+using NodeGrooverClient.Helpers;
 using NodeGrooverClient.Model;
 using NodeGrooverClient.Views;
 using System;
@@ -48,6 +49,7 @@ namespace NodeGrooverClient.ViewModel
         public RelayCommand QueueCommand { get; set; }
         public RelayCommand PlayAlbumCommand { get; set; }
         public RelayCommand ShowAlbumCommand { get; set; }
+        public RelayCommand ShowArtistCommand { get; set; }
 
         public SearchViewModel()
         {
@@ -56,6 +58,7 @@ namespace NodeGrooverClient.ViewModel
             QueueCommand = new RelayCommand(queue);
             PlayAlbumCommand = new RelayCommand(playAlbum);
             ShowAlbumCommand = new RelayCommand(openAlbumWindow);
+            ShowArtistCommand = new RelayCommand(openArtistWindow);
 
         }
 
@@ -96,7 +99,11 @@ namespace NodeGrooverClient.ViewModel
         }
         void openArtistWindow(object parameter)
         {
-
+            ArtistOverlay overlay = new ArtistOverlay
+            {
+                DataContext = new ArtistViewModel(parameter.ToString())
+            };
+            overlay.Show();
         }
 
     }

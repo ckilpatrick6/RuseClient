@@ -1,10 +1,8 @@
 ﻿using Elysium.Controls;
-using NodeGrooverClient.Model;
-using NodeGrooverClient.Net;
+using Framework.UI.Controls;
 using NodeGrooverClient.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +19,18 @@ using System.Windows.Shapes;
 namespace NodeGrooverClient.Views
 {
     /// <summary>
-    /// Interaction logic for Results.xaml
+    /// Interaction logic for ArtistOverlay.xaml
     /// </summary>
-    public partial class Results : UserControl
+    public partial class ArtistOverlay : OverlayWindow
     {
-        public Results()
+        public ArtistOverlay()
         {
             InitializeComponent();
+        }
+
+        private void CommandButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void ShowAlbum_Click(object sender, RoutedEventArgs e)
@@ -36,18 +39,6 @@ namespace NodeGrooverClient.Views
             AlbumOverlay overlay = new AlbumOverlay
             {
                 DataContext = new AlbumViewModel(button.Tag.ToString()),
-                Owner = System.Windows.Window.GetWindow(this),
-                Style = (Style)this.FindResource("DarkOverlayWindowStyle")
-            };
-            overlay.Show();
-        }
-
-        private void ShowArtist_Click(object sender, RoutedEventArgs e)
-        {
-            CommandButton button = (sender as CommandButton);
-            ArtistOverlay overlay = new ArtistOverlay
-            {
-                DataContext = new ArtistViewModel(button.Tag.ToString()),
                 Owner = System.Windows.Window.GetWindow(this),
                 Style = (Style)this.FindResource("DarkOverlayWindowStyle")
             };

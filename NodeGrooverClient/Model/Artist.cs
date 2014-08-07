@@ -18,5 +18,11 @@ namespace NodeGrooverClient.Model
         [JsonProperty("artistArtRef")]
         public string Art { get; set; }
 
+        [JsonProperty("topTracks")]
+        public Song[] TopTracks { get; set; }
+
+        [JsonProperty("albums")]
+        public Album[] Albums { get; set; }
+
     }
 }
