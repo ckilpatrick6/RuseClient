@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\
 NodeGrooverClient
 none
 false
 DEBUG;TRACE
-C:\Users\Alex\Documents\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\App.xaml
-91262911550
-1-931603028
-30762319503
-26794360287
-Simple Styles.xaml;Views\AlbumOverlay.xaml;Views\ContextWindow.xaml;Views\ErrorDialog.xaml;Views\Player.xaml;Views\Queue.xaml;Views\Results.xaml;Views\Settings.xaml;Views\Window2.xaml;
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\App.xaml
+101748764683
 
+321004813905
+28-55188125
+Simple Styles.xaml;Views\AlbumOverlay.xaml;Views\ArtistOverlay.xaml;Views\ContextWindow.xaml;Views\ErrorDialog.xaml;Views\Player.xaml;Views\Queue.xaml;Views\Results.xaml;Views\Settings.xaml;Views\Window2.xaml;
+splash.png
 False
 

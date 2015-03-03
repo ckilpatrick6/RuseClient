@@ -86,6 +86,8 @@ namespace NodeGrooverClient {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public static void Main() {
+            SplashScreen splashScreen = new SplashScreen("splash.png");
+            splashScreen.Show(true);
             NodeGrooverClient.App app = new NodeGrooverClient.App();
             app.InitializeComponent();
             app.Run();
