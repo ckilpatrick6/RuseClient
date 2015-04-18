@@ -56,12 +56,12 @@ namespace NodeGrooverClient.ViewModel
             if (_port == "")
                 _port = "80";
 
-            if(!(_hostname.Contains("http://")||_hostname.Contains("https://")))
+            if(!(_hostname.Contains("ws://")||_hostname.Contains("ws://")))
             {
-                _hostname = "http://"+_hostname;
+                _hostname = "ws://"+_hostname;
             }
 
-            string uri = _hostname + ":" + _port + "/";
+            string uri = _hostname + ":" + _port + "/ws";
             (Application.Current as App).changeUri(uri);
         }
     }

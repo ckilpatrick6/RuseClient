@@ -23,9 +23,6 @@ namespace NodeGrooverClient.Model
         [JsonProperty("playing")]
         public bool Playing { get; set; }
 
-        [JsonProperty("queue")]
-        public ObservableCollection<Song> Queue { get; set; }
-
         [JsonProperty("current")]
         public Song Current { get; set; }
 

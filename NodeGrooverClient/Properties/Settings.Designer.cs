@@ -25,7 +25,7 @@ namespace NodeGrooverClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://bettadapur.com:5000/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ws://bettadapur.com:5000/ws")]
         public string endpoint {
             get {
                 return ((string)(this["endpoint"]));

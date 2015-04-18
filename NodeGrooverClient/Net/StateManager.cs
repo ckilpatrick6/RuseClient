@@ -1,6 +1,7 @@
 ﻿using NodeGrooverClient.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace NodeGrooverClient.Net
     {
 
         private static List<IStatusListener> listeners;
+        private static List<IQueueListener> queue_listeners;
 
         public static void registerListener(IStatusListener listener)
         {
@@ -22,7 +24,16 @@ namespace NodeGrooverClient.Net
             if (!listeners.Contains(listener))
                 listeners.Add(listener);
         }
-        public static void updateListeners(Status status)
+
+        public static void registerQueueListener(IQueueListener listener)
+        {
+            if (queue_listeners == null)
+                queue_listeners = new List<IQueueListener>();
+
+            if (!queue_listeners.Contains(listener))
+                queue_listeners.Add(listener);
+        }
+        public static void updateStatusListeners(Status status)
         {
             if(listeners!=null)
                 foreach(IStatusListener listener in listeners)
@@ -30,6 +41,17 @@ namespace NodeGrooverClient.Net
                     listener.updateStatus(status);
                 }
         }
+
+        public static void updateQueueListeners(ObservableCollection<Song> queue)
+        {
+            if (queue_listeners != null)
+                foreach (IQueueListener listener in listeners)
+                {
+                    listener.updateQueue(queue);
+                }
+        }
+
+
 
 
 

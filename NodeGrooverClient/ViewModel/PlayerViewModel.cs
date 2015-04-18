@@ -12,7 +12,7 @@ using System.Windows.Data;
 
 namespace NodeGrooverClient.ViewModel
 {
-    class PlayerViewModel: ViewModel, IStatusListener
+    class PlayerViewModel: ViewModel, IStatusListener, IQueueListener
     {
         private Status _status;
         public Status Status
@@ -41,8 +41,14 @@ namespace NodeGrooverClient.ViewModel
         {
             _status = status;
             OnPropertyChanged("Status");
-            Utils.mirrorCollections(status.Queue, _queue);
+            //Utils.mirrorCollections(status.Queue, _queue);
             
+        }
+
+        public void updateQueue(ObservableCollection<Song> queue)
+        {
+            _queue = queue;
+            OnPropertyChanged("Queue");
         }
 
         public RelayCommand PlayCommand { get; set; }
@@ -56,6 +62,7 @@ namespace NodeGrooverClient.ViewModel
         public PlayerViewModel()
         {
             StateManager.registerListener(this);
+            StateManager.registerQueueListener(this);
             PlayCommand = new RelayCommand(play);
             NextCommand = new RelayCommand(next);
             PrevCommand = new RelayCommand(prev);
@@ -111,6 +118,8 @@ namespace NodeGrooverClient.ViewModel
             (Application.Current as App).Api.goTo((int)parameter);
         }
 
-        
+
+
+       
     }
 }

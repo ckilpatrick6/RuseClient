@@ -209,7 +209,6 @@ C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\Nod
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\System.Reactive.PlatformServices.xml
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\System.Reactive.Windows.Threading.xml
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\WebSocket4Net.pdb
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Microsoft.Expression.Drawing.xml
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\NodeGrooverClient.csprojResolveAssemblyReference.cache
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\Simple Styles.baml
@@ -241,3 +240,13 @@ C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\Nod
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\NodeGrooverClient.csproj.GenerateResource.Cache
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\NodeGrooverClient.exe.manifest
 C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\obj\Debug\NodeGrooverClient.application
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Castle.Core.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Fleck.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\MsgPack.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Newtonsoft.Msgpack.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\WampSharp.Default.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\WampSharp.dll
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\Castle.Core.xml
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\MsgPack.xml
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\WampSharp.xml
+C:\Users\Alex\SkyDrive\Visual Studio 2013\Projects\NodeGrooverClientSocketIO\NodeGrooverClient\bin\Debug\WampSharp.Default.xml

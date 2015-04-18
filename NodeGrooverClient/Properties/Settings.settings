@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="endpoint" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://bettadapur.com:5000/</Value>
+      <Value Profile="(Default)">ws://bettadapur.com:5000/ws</Value>
     </Setting>
   </Settings>
 </SettingsFile>
