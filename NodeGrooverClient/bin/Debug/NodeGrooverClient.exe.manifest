@@ -175,14 +175,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NodeGrooverClient.exe" size="737792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NodeGrooverClient.exe" size="738304">
       <assemblyIdentity name="NodeGrooverClient" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FP6hBDB6STEMN8rjPIf/TqiWgfd1ERqIpxZnu/sSPWA=</dsig:DigestValue>
+        <dsig:DigestValue>3U9MiDUyFbs0wt4Z/fLWUbKOgqtTYwUJnUUBTDfHhSg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

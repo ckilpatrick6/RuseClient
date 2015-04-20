@@ -1,6 +1,7 @@
 ﻿using Elysium.Controls;
 using NodeGrooverClient.Model;
 using NodeGrooverClient.Net;
+using NodeGrooverClient.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,11 @@ namespace NodeGrooverClient.Views
             InitializeComponent();
             //StateManager.registerListener(this);
             //nowPlayingList.ItemsSource = songs;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as PlayerViewModel).requestQueue();
         }
         //public void updateStatus(Model.Status s)
         //{

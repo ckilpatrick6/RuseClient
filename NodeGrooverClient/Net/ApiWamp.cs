@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using WampSharp.V2;
@@ -17,6 +18,7 @@ namespace NodeGrooverClient.Net
         private string endpoint;
         private IWampChannel channel;
         private IRuseService service;
+        public ISubject<string> queue_request;
         public Api(string uri)
         {
             Console.Out.Write("Starting API");
@@ -25,6 +27,8 @@ namespace NodeGrooverClient.Net
             channel = factory.CreateJsonChannel(endpoint, "realm1");
             channel.Open().Wait(5000);
             service = channel.RealmProxy.Services.GetCalleeProxy<IRuseService>();
+            queue_request = channel.RealmProxy.Services.GetSubject<string>("com.ruse.queue_request");
+            
 
             IDisposable status_sub =
                 channel.RealmProxy.Services.GetSubject<string>("com.ruse.now_playing").Subscribe(x =>
@@ -41,6 +45,13 @@ namespace NodeGrooverClient.Net
                     ObservableCollection<Song> queue = JsonConvert.DeserializeObject<ObservableCollection<Song>>(x);
                     StateManager.updateQueueListeners(queue);
                 });
+
+            
+        }
+
+        public void request_queue()
+        {
+            queue_request.OnNext("");
         }
 
         public void disconnect()

@@ -12,7 +12,7 @@ using System.Windows.Data;
 
 namespace NodeGrooverClient.ViewModel
 {
-    class PlayerViewModel: ViewModel, IStatusListener, IQueueListener
+    public class PlayerViewModel: ViewModel, IStatusListener, IQueueListener
     {
         private Status _status;
         public Status Status
@@ -117,7 +117,11 @@ namespace NodeGrooverClient.ViewModel
         {
             (Application.Current as App).Api.goTo((int)parameter);
         }
-
+        
+        public void requestQueue()
+        {
+            (Application.Current as App).Api.request_queue();
+        }
 
 
        
