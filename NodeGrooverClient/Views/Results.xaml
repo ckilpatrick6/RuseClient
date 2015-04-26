@@ -13,21 +13,21 @@
     <UserControl.Resources>
         <vm:SearchViewModel x:Key="SearchViewModel"/>
         <cv:VisibilityConverter x:Key="VisibilityConverter"/>
-        
-       
-        
+
+
+
 
         <DataTemplate x:Key="albumItemTemplate">
             <Grid>
-           
-            <Canvas Width="200" Height="200" Style="{StaticResource FadeInCanvas}">
-                <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="200" Style="{StaticResource FadeInImage}"/>
-                <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="75" Background="Black">
-                    <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
-                    <TextBlock Text="{Binding ArtistName}" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
-                    <TextBlock Text="{Binding Year}" TextTrimming="WordEllipsis" FontSize="13" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
-                </StackPanel>
-            </Canvas>
+
+                <Canvas Width="200" Height="200" Style="{StaticResource FadeInCanvas}">
+                    <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="200" Style="{StaticResource FadeInImage}"/>
+                    <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="75" Background="Black">
+                        <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                        <TextBlock Text="{Binding ArtistName}" TextTrimming="WordEllipsis" FontSize="16" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
+                        <TextBlock Text="{Binding Year}" TextTrimming="WordEllipsis" FontSize="13" FontFamily="Segoe UI Light" FontWeight="Light" Foreground="White"/>
+                    </StackPanel>
+                </Canvas>
                 <Border Width="200" Height="125" VerticalAlignment="Top" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" Background="Black" Opacity="0" Grid.RowSpan="5">
                     <Border.Style>
                         <Style TargetType="Border">
@@ -46,7 +46,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                        <metro:CommandButton Width="50" Height="50" VerticalAlignment="Center" FontSize="22" FontFamily="Segoe UI Symbol"  Content="&#xE102;" Background="Transparent"  Command="{Binding Path=DataContext.PlayAlbumCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
+                            <metro:CommandButton Width="50" Height="50" VerticalAlignment="Center" FontSize="22" FontFamily="Segoe UI Symbol"  Content="&#xE102;" Background="Transparent"  Command="{Binding Path=DataContext.PlayAlbumCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Id}"/>
                             <metro:CommandButton Width="50" Height="50"  VerticalAlignment="Center" FontSize="22" Grid.Column="1" Content="&#xE10C;" FontFamily="Segoe UI Symbol" Background="Transparent" Tag="{Binding Id}" Click="ShowAlbum_Click"/>
                         </Grid>
 
@@ -57,12 +57,12 @@
 
         <DataTemplate x:Key="artistItemTemplate">
             <Grid>
-            <Canvas Width="200" Height="112" Style="{StaticResource FadeInCanvas}">
-                <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="112" Style="{StaticResource FadeInImage}"/>
-                <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="50" Background="Black">
-                    <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
-                </StackPanel>
-            </Canvas>
+                <Canvas Width="200" Height="112" Style="{StaticResource FadeInCanvas}">
+                    <Image Source="{Binding Art}" Canvas.Top="0" Canvas.Left="0" Width="200" Height="112" Style="{StaticResource FadeInImage}"/>
+                    <StackPanel Canvas.Bottom="0" Canvas.Left="0" Opacity="0.65" Width="200" Height="50" Background="Black">
+                        <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" FontSize="24" FontFamily="Segoe UI Light" FontWeight="Light"  Foreground="White"/>
+                    </StackPanel>
+                </Canvas>
                 <Border Width="200" Height="70" VerticalAlignment="Top" Visibility="{Binding Path=IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Converter={StaticResource VisibilityConverter}}" Background="Black" Opacity="0" Grid.RowSpan="5">
                     <Border.Style>
                         <Style TargetType="Border">
@@ -144,11 +144,11 @@
                 
             </Grid>
         </DataTemplate>-->
-       
-        
-        
+
+
+
     </UserControl.Resources>
-    
+
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -167,8 +167,18 @@
                 <KeyBinding Key="Enter" Command="{Binding SearchCommand}"/>
             </TextBox.InputBindings>
         </TextBox>
-        
+
         <Button Grid.Row="0" Grid.Column="2" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE11A;" Command="{Binding SearchCommand}" />
+
+        <Label MouseDown="Label_MouseDown" Content="&#x25bc;" HorizontalAlignment="Left" Grid.Column="1" Foreground="White" Margin="80,34,0,5">
+            <Label.ContextMenu>
+                <ContextMenu Name="sourceMenu">
+                    <MenuItem Command="{Binding GMusicCommand}" Header="Google Music"/>
+                    <MenuItem Command="{Binding YouTubeCommand}" Header="YouTube"/>
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
+
         <TabControl  Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" >
             <TabItem Header="Songs"  Background="Transparent">
                 <ListView Grid.Row="1" Grid.ColumnSpan="2"   Name="listView" ItemsSource="{Binding Results.Songs}"  ItemTemplate="{StaticResource searchItemTemplate}" Background="Transparent" Margin="0,0,0,0" BorderBrush="Transparent">
@@ -177,7 +187,7 @@
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         </Style>
                     </ListView.ItemContainerStyle>
-                    
+
                 </ListView>
             </TabItem>
             <TabItem Header="Albums"  Background="Transparent">
@@ -188,10 +198,10 @@
                         </Style>
                     </ListView.ItemContainerStyle>
 
-                
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
                             RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
                             ItemWidth="{Binding (ListView.View).ItemWidth, 
                             RelativeSource={RelativeSource AncestorType=ListView}}"
@@ -199,8 +209,8 @@
                             ItemHeight="{Binding (ListView.View).ItemHeight, 
                             RelativeSource={RelativeSource AncestorType=ListView}}" 
                         />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
                 </ListView>
             </TabItem>
             <TabItem Header="Artists"  Background="Transparent">

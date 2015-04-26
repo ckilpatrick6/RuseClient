@@ -69,6 +69,15 @@ namespace NodeGrooverClient.Net
             return result;
         }
 
+        public void setSource(int key)
+        {
+            //Tell the server which media service to query
+            //0:Google Music
+            //1:YouTube
+            
+            service.set_source(key);
+        }
+
         public async Task<Album> getAlbum(string id)
         {
             Album album;
@@ -146,6 +155,9 @@ namespace NodeGrooverClient.Net
     {
         [WampProcedure("com.ruse.search")]
         Task<string> search(string query);
+
+        [WampProcedure("com.ruse.set_source")]
+        void set_source(int key);
 
         [WampProcedure("com.ruse.get_album")]
         Task<string> get_album(string id);

@@ -53,5 +53,11 @@ namespace NodeGrooverClient.Views
             };
             overlay.Show();
         }
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Label label = (Label)sender;
+            label.ContextMenu.IsOpen = true;
+        }
     }
 }

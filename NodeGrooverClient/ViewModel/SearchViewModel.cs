@@ -45,6 +45,8 @@ namespace NodeGrooverClient.ViewModel
         }
 
         public RelayCommand SearchCommand { get; set; }
+        public RelayCommand GMusicCommand { get; set; }
+        public RelayCommand YouTubeCommand { get; set; }
         public RelayCommand PlayCommand { get; set; }
         public RelayCommand QueueCommand { get; set; }
         public RelayCommand PlayAlbumCommand { get; set; }
@@ -54,6 +56,8 @@ namespace NodeGrooverClient.ViewModel
         public SearchViewModel()
         {
             SearchCommand = new RelayCommand(search);
+            GMusicCommand = new RelayCommand(gMusic);
+            YouTubeCommand = new RelayCommand(youTube);
             PlayCommand = new RelayCommand(play);
             QueueCommand = new RelayCommand(queue);
             PlayAlbumCommand = new RelayCommand(playAlbum);
@@ -69,6 +73,16 @@ namespace NodeGrooverClient.ViewModel
 
             _results = await (Application.Current as App).Api.search(_query);
             OnPropertyChanged("Results");
+        }
+        void gMusic(object parameter)
+        {
+            //Set source to Google Music
+            //(Application.Current as APP).Api.setService(0);
+        }
+        void youTube(object parameter)
+        {
+            //Set source to YouTube
+            //(Application.Current as APP).Api.setService(1);
         }
         void play(object parameter)
         {
